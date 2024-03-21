@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "M1ZIQWAeUvhfTJWLaDW1hKiWPstxPt29gVtoKvSe9wUTiJZqnZ1y7PUx7F/LJM18r7y6B2BBdhcp9cAw/z80NA==",
+  "dgSpecHash": "5+jYY58uNGKSfxS58wo4GL8myAfYvYpvthIS45vJXJuJUpUu2g/+79EgSyHz142uSOcbRb/k0AXw5H/z5rK5NA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ivan\\source\\repos\\My4Notes\\My4Notes.Web\\My4Notes.Web.csproj",
+  "projectFilePath": "C:\\Users\\Ivan\\RiderProjects\\My4Notes\\My4Notes.Web\\My4Notes.Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ivan\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",

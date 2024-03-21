@@ -2736,11 +2736,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ivan\\source\\repos\\My4Notes\\My4Notes.Web\\My4Notes.Web.csproj",
+      "projectUniqueName": "C:\\Users\\Ivan\\RiderProjects\\My4Notes\\My4Notes.Web\\My4Notes.Web.csproj",
       "projectName": "My4Notes.Web",
-      "projectPath": "C:\\Users\\Ivan\\source\\repos\\My4Notes\\My4Notes.Web\\My4Notes.Web.csproj",
+      "projectPath": "C:\\Users\\Ivan\\RiderProjects\\My4Notes\\My4Notes.Web\\My4Notes.Web.csproj",
       "packagesPath": "C:\\Users\\Ivan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ivan\\source\\repos\\My4Notes\\My4Notes.Web\\obj\\",
+      "outputPath": "C:\\Users\\Ivan\\RiderProjects\\My4Notes\\My4Notes.Web\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Ivan\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2757,11 +2757,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Ivan\\source\\repos\\My4Notes\\My4Notes.Entities\\My4Notes.Entities.csproj": {
-              "projectPath": "C:\\Users\\Ivan\\source\\repos\\My4Notes\\My4Notes.Entities\\My4Notes.Entities.csproj"
+            "C:\\Users\\Ivan\\RiderProjects\\My4Notes\\My4Notes.Entities\\My4Notes.Entities.csproj": {
+              "projectPath": "C:\\Users\\Ivan\\RiderProjects\\My4Notes\\My4Notes.Entities\\My4Notes.Entities.csproj"
             },
-            "C:\\Users\\Ivan\\source\\repos\\My4Notes\\My4Notes.Services\\My4Notes.Services.csproj": {
-              "projectPath": "C:\\Users\\Ivan\\source\\repos\\My4Notes\\My4Notes.Services\\My4Notes.Services.csproj"
+            "C:\\Users\\Ivan\\RiderProjects\\My4Notes\\My4Notes.Services\\My4Notes.Services.csproj": {
+              "projectPath": "C:\\Users\\Ivan\\RiderProjects\\My4Notes\\My4Notes.Services\\My4Notes.Services.csproj"
             }
           }
         }

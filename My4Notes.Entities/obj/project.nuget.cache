@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AYuUJF349acI9tZpMVVn1Q7fpYaVoKDYu2twOSGRiwJkxfr+ZbuHvkzN4WdbOrBPs87/S6RxxY0jrmX0Szvk0w==",
+  "dgSpecHash": "o4+FSQXTxfQBbiX8vIqMjycziAQRB/S1Id3kIK0Lm3MN8vuuSK3ZRF7oS23UMS+GNYVOcSwTzvRCvS0upUzAGg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ivan\\source\\repos\\My4Notes\\My4Notes.Entities\\My4Notes.Entities.csproj",
+  "projectFilePath": "C:\\Users\\Ivan\\RiderProjects\\My4Notes\\My4Notes.Entities\\My4Notes.Entities.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

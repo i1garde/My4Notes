@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dt7M5V4+0aRK6uxx6b0hC2pOC5XmsHe7XKo3MYTgZIOCmE2XHdyIUMBZyoDgrQokp39+aZ70TKHUsbOF9JDtuQ==",
+  "dgSpecHash": "X+Nzx1f/P6uoVMJQ9dgbzC7aM1Ap5Jw7n/VJKB5vsTTL5FB3ZofmnlDyO3oSFEp0YmixwKfhcVsFLf5VLD13mA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ivan\\source\\repos\\My4Notes\\My4Notes.Services\\My4Notes.Services.csproj",
+  "projectFilePath": "C:\\Users\\Ivan\\RiderProjects\\My4Notes\\My4Notes.Services\\My4Notes.Services.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.entityframeworkcore\\9.0.0-preview.2.24128.4\\microsoft.entityframeworkcore.9.0.0-preview.2.24128.4.nupkg.sha512",
     "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\9.0.0-preview.2.24128.4\\microsoft.entityframeworkcore.abstractions.9.0.0-preview.2.24128.4.nupkg.sha512",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pp2pOZFDSFPYVRC5feCQsn/qlK5bFjbbim13pP/64PdBKC4eSH5QhOQQ4J9hXLupkt4ziBcjid7rdwfS6hnkzQ==",
+  "dgSpecHash": "vl3Y7+e1kMhhqmncfA8AUWb0GEMGXr/dgAP2rZoaY443b7pt10CFSsYJrMaSD8aBmNgeJWYkpfaJdHAjbFhWyQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ivan\\source\\repos\\My4Notes\\My4Notes.DatabaseAccess\\My4Notes.DatabaseAccess.csproj",
+  "projectFilePath": "C:\\Users\\Ivan\\RiderProjects\\My4Notes\\My4Notes.DatabaseAccess\\My4Notes.DatabaseAccess.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ivan\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",

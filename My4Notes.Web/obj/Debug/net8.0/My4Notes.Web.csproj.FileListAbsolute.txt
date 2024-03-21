@@ -233,3 +233,6 @@ C:\Users\Ivan\source\repos\My4Notes\My4Notes.Web\obj\Debug\net8.0\refint\My4Note
 C:\Users\Ivan\source\repos\My4Notes\My4Notes.Web\obj\Debug\net8.0\My4Notes.Web.pdb
 C:\Users\Ivan\source\repos\My4Notes\My4Notes.Web\obj\Debug\net8.0\My4Notes.Web.genruntimeconfig.cache
 C:\Users\Ivan\source\repos\My4Notes\My4Notes.Web\obj\Debug\net8.0\ref\My4Notes.Web.dll
+C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Web\bin\Debug\net8.0\My4Notes.Services.dll
+C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Web\bin\Debug\net8.0\My4Notes.Services.pdb
+C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Web\obj\Debug\net8.0\My4Notes.Web.sourcelink.json

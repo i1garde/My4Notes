@@ -33,3 +33,4 @@ C:\Users\Ivan\source\repos\My4Notes\My4Notes.DatabaseAccess\obj\Debug\net8.0\ref
 C:\Users\Ivan\source\repos\My4Notes\My4Notes.DatabaseAccess\obj\Debug\net8.0\My4Notes.DatabaseAccess.pdb
 C:\Users\Ivan\source\repos\My4Notes\My4Notes.DatabaseAccess\obj\Debug\net8.0\My4Notes.DatabaseAccess.genruntimeconfig.cache
 C:\Users\Ivan\source\repos\My4Notes\My4Notes.DatabaseAccess\obj\Debug\net8.0\ref\My4Notes.DatabaseAccess.dll
+C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.DatabaseAccess\obj\Debug\net8.0\My4Notes.DatabaseAccess.sourcelink.json

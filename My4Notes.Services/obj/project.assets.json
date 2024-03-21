@@ -730,11 +730,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ivan\\source\\repos\\My4Notes\\My4Notes.Services\\My4Notes.Services.csproj",
+      "projectUniqueName": "C:\\Users\\Ivan\\RiderProjects\\My4Notes\\My4Notes.Services\\My4Notes.Services.csproj",
       "projectName": "My4Notes.Services",
-      "projectPath": "C:\\Users\\Ivan\\source\\repos\\My4Notes\\My4Notes.Services\\My4Notes.Services.csproj",
+      "projectPath": "C:\\Users\\Ivan\\RiderProjects\\My4Notes\\My4Notes.Services\\My4Notes.Services.csproj",
       "packagesPath": "C:\\Users\\Ivan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ivan\\source\\repos\\My4Notes\\My4Notes.Services\\obj\\",
+      "outputPath": "C:\\Users\\Ivan\\RiderProjects\\My4Notes\\My4Notes.Services\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Ivan\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -751,11 +751,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Ivan\\source\\repos\\My4Notes\\My4Notes.DatabaseAccess\\My4Notes.DatabaseAccess.csproj": {
-              "projectPath": "C:\\Users\\Ivan\\source\\repos\\My4Notes\\My4Notes.DatabaseAccess\\My4Notes.DatabaseAccess.csproj"
+            "C:\\Users\\Ivan\\RiderProjects\\My4Notes\\My4Notes.DatabaseAccess\\My4Notes.DatabaseAccess.csproj": {
+              "projectPath": "C:\\Users\\Ivan\\RiderProjects\\My4Notes\\My4Notes.DatabaseAccess\\My4Notes.DatabaseAccess.csproj"
             },
-            "C:\\Users\\Ivan\\source\\repos\\My4Notes\\My4Notes.Entities\\My4Notes.Entities.csproj": {
-              "projectPath": "C:\\Users\\Ivan\\source\\repos\\My4Notes\\My4Notes.Entities\\My4Notes.Entities.csproj"
+            "C:\\Users\\Ivan\\RiderProjects\\My4Notes\\My4Notes.Entities\\My4Notes.Entities.csproj": {
+              "projectPath": "C:\\Users\\Ivan\\RiderProjects\\My4Notes\\My4Notes.Entities\\My4Notes.Entities.csproj"
             }
           }
         }
