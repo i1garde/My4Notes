@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "My4Notes.Web", "My4Notes.Web\My4Notes.Web.csproj", "{006C6318-0AA4-42D7-849B-46C37FE11608}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "My4Notes.DatabaseAccess", "My4Notes.DatabaseAccess\My4Notes.DatabaseAccess.csproj", "{F52A3A4C-7646-4546-9D40-04B5E585F90B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "My4Notes.Entities", "My4Notes.Entities\My4Notes.Entities.csproj", "{B631D8FA-D5B3-4054-970D-9BAC1BD6D1B0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{006C6318-0AA4-42D7-849B-46C37FE11608}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{006C6318-0AA4-42D7-849B-46C37FE11608}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{006C6318-0AA4-42D7-849B-46C37FE11608}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{006C6318-0AA4-42D7-849B-46C37FE11608}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F52A3A4C-7646-4546-9D40-04B5E585F90B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F52A3A4C-7646-4546-9D40-04B5E585F90B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F52A3A4C-7646-4546-9D40-04B5E585F90B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F52A3A4C-7646-4546-9D40-04B5E585F90B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B631D8FA-D5B3-4054-970D-9BAC1BD6D1B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B631D8FA-D5B3-4054-970D-9BAC1BD6D1B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B631D8FA-D5B3-4054-970D-9BAC1BD6D1B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B631D8FA-D5B3-4054-970D-9BAC1BD6D1B0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

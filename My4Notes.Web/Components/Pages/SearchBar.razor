@@ -1,0 +1,14 @@
+﻿@using Microsoft.AspNetCore.Antiforgery
+
+<form>
+       <input name="@Token.FormFieldName" type="hidden" value="@Token.RequestToken" />
+       <input class="form-control" type="search" name="search" 
+              placeholder="Search" aria-label="Search" 
+              hx-post="/notes/search" hx-trigger="input changed delay:500ms, search"
+              hx-target="#notesList" hx-indicator=".htmx-indicator" style="width: 1000px;">
+</form>
+       
+@code {
+       [Parameter] 
+       public AntiforgeryTokenSet Token { get; set; }
+}

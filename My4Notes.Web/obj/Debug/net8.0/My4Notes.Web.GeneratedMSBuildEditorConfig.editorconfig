@@ -1,0 +1,59 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = My4Notes.Web
+build_property.RootNamespace = My4Notes.Web
+build_property.ProjectDir = C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Web\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Web
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/Ivan/RiderProjects/My4Notes/My4Notes.Web/Components/IndexPage.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJbmRleFBhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Ivan/RiderProjects/My4Notes/My4Notes.Web/Components/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Ivan/RiderProjects/My4Notes/My4Notes.Web/Components/Pages/CreateNote.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDcmVhdGVOb3RlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Ivan/RiderProjects/My4Notes/My4Notes.Web/Components/Pages/EditNote.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFZGl0Tm90ZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Ivan/RiderProjects/My4Notes/My4Notes.Web/Components/Pages/GetNote.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xHZXROb3RlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Ivan/RiderProjects/My4Notes/My4Notes.Web/Components/Pages/HideNote.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIaWRlTm90ZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Ivan/RiderProjects/My4Notes/My4Notes.Web/Components/Pages/NotesList.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xOb3Rlc0xpc3QucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Ivan/RiderProjects/My4Notes/My4Notes.Web/Components/Pages/SearchBar.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTZWFyY2hCYXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 

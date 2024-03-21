@@ -1,0 +1,8 @@
+﻿@using My4Notes.Entities
+@using My4Notes.Web.Components.Pages
+
+@layout Layout.MainLayout
+
+<div id="indexPage">
+    <div id="notesList" hx-get="/notes" hx-trigger="load" hx-swap="innerHTML"></div>
+</div>

@@ -1,0 +1,26 @@
+﻿@using My4Notes.Entities
+
+@foreach (var note in Notes)
+    {
+        <div id="noteContainer-@note.Id" class="container p-3 my-3" style="max-width: 95%; background-color: #d9d9d7; border-style: solid; border-color: #b8b8b8;">
+            <div class="row align-items-center">
+                <div class="col-2">
+                    @note.Title
+                </div>
+                <div class="col-8 text-center">
+                    @Note.formatCreationDate(@note)
+                </div>
+                <div class="col-1">
+                    <button class="btn btn-light" hx-get="/notes/@note.Id" hx-target="#noteContainer-@note.Id" hx-swap="outerHTML">View note</button>
+                </div>
+                <div class="col-1">
+                    <button class="btn btn-light" hx-get="/notes/@note.Id/edit" hx-target="#noteContainer-@note.Id" hx-swap="outerHTML">Edit note</button>
+                </div>
+            </div>
+        </div>
+    }
+
+@code {
+    [Parameter] 
+    public List<Note> Notes { get; set; } = new();
+}

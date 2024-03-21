@@ -1,0 +1,24 @@
+﻿@using My4Notes.Entities
+
+<div id="noteContainer-@Note.Id" class="container p-3 my-3" style="max-width: 95%; background-color: #d9d9d7; border-style: solid; border-color: #b8b8b8;">
+    <div class="row align-items-center">
+        <div class="col-2">
+            @Note.Title
+        </div>
+        <div class="col-8 text-center">
+            @Note.formatCreationDate(@Note)
+        </div>
+        <div class="col-1">
+            <button class="btn btn-light" hx-get="/notes/@Note.Id" hx-target="#noteContainer-@Note.Id" hx-swap="outerHTML">View note</button>
+        </div>
+        <div class="col-1">
+            <button class="btn btn-light" hx-get="/notes/@Note.Id/edit" hx-target="#noteContainer-@Note.Id" hx-swap="outerHTML">Edit note</button>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    [Parameter] 
+    public Note Note { get; set; } = new();
+}
