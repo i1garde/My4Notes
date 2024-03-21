@@ -9,8 +9,8 @@
       "My4Notes.Web/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Tools": "9.0.0-preview.2.24128.4",
-          "My4Notes.DatabaseAccess": "1.0.0",
-          "My4Notes.Entities": "1.0.0"
+          "My4Notes.Entities": "1.0.0",
+          "My4Notes.Services": "1.0.0"
         },
         "runtime": {
           "My4Notes.Web.dll": {}
@@ -573,6 +573,15 @@
         "runtime": {
           "My4Notes.Entities.dll": {}
         }
+      },
+      "My4Notes.Services/1.0.0": {
+        "dependencies": {
+          "My4Notes.DatabaseAccess": "1.0.0",
+          "My4Notes.Entities": "1.0.0"
+        },
+        "runtime": {
+          "My4Notes.Services.dll": {}
+        }
       }
     }
   },
@@ -868,6 +877,11 @@
       "sha512": ""
     },
     "My4Notes.Entities/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "My4Notes.Services/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

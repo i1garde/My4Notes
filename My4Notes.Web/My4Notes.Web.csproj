@@ -7,8 +7,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\My4Notes.DatabaseAccess\My4Notes.DatabaseAccess.csproj" />
       <ProjectReference Include="..\My4Notes.Entities\My4Notes.Entities.csproj" />
+      <ProjectReference Include="..\My4Notes.Services\My4Notes.Services.csproj" />
     </ItemGroup>
 
     <ItemGroup>

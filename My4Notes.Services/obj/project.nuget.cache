@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "dgSpecHash": "dt7M5V4+0aRK6uxx6b0hC2pOC5XmsHe7XKo3MYTgZIOCmE2XHdyIUMBZyoDgrQokp39+aZ70TKHUsbOF9JDtuQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Ivan\\source\\repos\\My4Notes\\My4Notes.Services\\My4Notes.Services.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.entityframeworkcore\\9.0.0-preview.2.24128.4\\microsoft.entityframeworkcore.9.0.0-preview.2.24128.4.nupkg.sha512",
+    "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\9.0.0-preview.2.24128.4\\microsoft.entityframeworkcore.abstractions.9.0.0-preview.2.24128.4.nupkg.sha512",
+    "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\9.0.0-preview.2.24128.4\\microsoft.entityframeworkcore.analyzers.9.0.0-preview.2.24128.4.nupkg.sha512",
+    "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\9.0.0-preview.1.24081.2\\microsoft.entityframeworkcore.relational.9.0.0-preview.1.24081.2.nupkg.sha512",
+    "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\9.0.0-preview.2.24128.5\\microsoft.extensions.caching.abstractions.9.0.0-preview.2.24128.5.nupkg.sha512",
+    "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.extensions.caching.memory\\9.0.0-preview.2.24128.5\\microsoft.extensions.caching.memory.9.0.0-preview.2.24128.5.nupkg.sha512",
+    "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\9.0.0-preview.1.24080.9\\microsoft.extensions.configuration.abstractions.9.0.0-preview.1.24080.9.nupkg.sha512",
+    "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\9.0.0-preview.2.24128.5\\microsoft.extensions.dependencyinjection.9.0.0-preview.2.24128.5.nupkg.sha512",
+    "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\9.0.0-preview.2.24128.5\\microsoft.extensions.dependencyinjection.abstractions.9.0.0-preview.2.24128.5.nupkg.sha512",
+    "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.extensions.logging\\9.0.0-preview.2.24128.5\\microsoft.extensions.logging.9.0.0-preview.2.24128.5.nupkg.sha512",
+    "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\9.0.0-preview.2.24128.5\\microsoft.extensions.logging.abstractions.9.0.0-preview.2.24128.5.nupkg.sha512",
+    "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.extensions.options\\9.0.0-preview.2.24128.5\\microsoft.extensions.options.9.0.0-preview.2.24128.5.nupkg.sha512",
+    "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.extensions.primitives\\9.0.0-preview.2.24128.5\\microsoft.extensions.primitives.9.0.0-preview.2.24128.5.nupkg.sha512",
+    "C:\\Users\\Ivan\\.nuget\\packages\\npgsql\\8.0.2\\npgsql.8.0.2.nupkg.sha512",
+    "C:\\Users\\Ivan\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\9.0.0-preview.1\\npgsql.entityframeworkcore.postgresql.9.0.0-preview.1.nupkg.sha512"
+  ],
+  "logs": []
+}

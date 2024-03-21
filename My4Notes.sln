@@ -1,10 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "My4Notes.Web", "My4Notes.Web\My4Notes.Web.csproj", "{006C6318-0AA4-42D7-849B-46C37FE11608}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "My4Notes.Web", "My4Notes.Web\My4Notes.Web.csproj", "{006C6318-0AA4-42D7-849B-46C37FE11608}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "My4Notes.DatabaseAccess", "My4Notes.DatabaseAccess\My4Notes.DatabaseAccess.csproj", "{F52A3A4C-7646-4546-9D40-04B5E585F90B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "My4Notes.DatabaseAccess", "My4Notes.DatabaseAccess\My4Notes.DatabaseAccess.csproj", "{F52A3A4C-7646-4546-9D40-04B5E585F90B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "My4Notes.Entities", "My4Notes.Entities\My4Notes.Entities.csproj", "{B631D8FA-D5B3-4054-970D-9BAC1BD6D1B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "My4Notes.Entities", "My4Notes.Entities\My4Notes.Entities.csproj", "{B631D8FA-D5B3-4054-970D-9BAC1BD6D1B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "My4Notes.Services", "My4Notes.Services\My4Notes.Services.csproj", "{55308C3B-7449-4FD6-A64F-1EB962DE2BF6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +29,15 @@ Global
 		{B631D8FA-D5B3-4054-970D-9BAC1BD6D1B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B631D8FA-D5B3-4054-970D-9BAC1BD6D1B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B631D8FA-D5B3-4054-970D-9BAC1BD6D1B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55308C3B-7449-4FD6-A64F-1EB962DE2BF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55308C3B-7449-4FD6-A64F-1EB962DE2BF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55308C3B-7449-4FD6-A64F-1EB962DE2BF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55308C3B-7449-4FD6-A64F-1EB962DE2BF6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E366F6C8-E2E4-4474-913E-365FE64C9D8F}
 	EndGlobalSection
 EndGlobal
