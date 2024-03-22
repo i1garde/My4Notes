@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("My4Notes.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c95e97ca099d7d89175371ed9f7f25f5604b237f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2f5fda8c596f9834944ad6b006bbab5281efbe5e")]
 [assembly: System.Reflection.AssemblyProductAttribute("My4Notes.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("My4Notes.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

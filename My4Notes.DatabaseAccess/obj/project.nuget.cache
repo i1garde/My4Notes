@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "vl3Y7+e1kMhhqmncfA8AUWb0GEMGXr/dgAP2rZoaY443b7pt10CFSsYJrMaSD8aBmNgeJWYkpfaJdHAjbFhWyQ==",
+  "dgSpecHash": "Fy/UzSt2OJZhp9kS67NwCfQaYKnv2yEg1iezcmXiy8HAnPDYDHI1O+f/eGJS9nb+R3EreMIr25SiRNkqtO8HGg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Ivan\\RiderProjects\\My4Notes\\My4Notes.DatabaseAccess\\My4Notes.DatabaseAccess.csproj",
   "expectedPackageFiles": [
@@ -15,6 +15,7 @@
     "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\9.0.0-preview.2.24128.4\\microsoft.entityframeworkcore.abstractions.9.0.0-preview.2.24128.4.nupkg.sha512",
     "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\9.0.0-preview.2.24128.4\\microsoft.entityframeworkcore.analyzers.9.0.0-preview.2.24128.4.nupkg.sha512",
     "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.entityframeworkcore.design\\9.0.0-preview.2.24128.4\\microsoft.entityframeworkcore.design.9.0.0-preview.2.24128.4.nupkg.sha512",
+    "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\9.0.0-preview.2.24128.4\\microsoft.entityframeworkcore.inmemory.9.0.0-preview.2.24128.4.nupkg.sha512",
     "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\9.0.0-preview.2.24128.4\\microsoft.entityframeworkcore.relational.9.0.0-preview.2.24128.4.nupkg.sha512",
     "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\9.0.0-preview.2.24128.5\\microsoft.extensions.caching.abstractions.9.0.0-preview.2.24128.5.nupkg.sha512",
     "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.extensions.caching.memory\\9.0.0-preview.2.24128.5\\microsoft.extensions.caching.memory.9.0.0-preview.2.24128.5.nupkg.sha512",

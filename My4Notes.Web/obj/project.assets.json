@@ -335,6 +335,22 @@
           "build/net8.0/Microsoft.EntityFrameworkCore.Design.props": {}
         }
       },
+      "Microsoft.EntityFrameworkCore.InMemory/9.0.0-preview.2.24128.4": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "9.0.0-preview.2.24128.4"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.EntityFrameworkCore.InMemory.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.EntityFrameworkCore.InMemory.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.EntityFrameworkCore.Relational/9.0.0-preview.2.24128.4": {
         "type": "package",
         "dependencies": {
@@ -861,6 +877,7 @@
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "9.0.0-preview.2.24128.4",
+          "Microsoft.EntityFrameworkCore.InMemory": "9.0.0-preview.2.24128.4",
           "My4Notes.Entities": "1.0.0",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "9.0.0-preview.1"
         },
@@ -1843,6 +1860,21 @@
         "lib/net8.0/Microsoft.EntityFrameworkCore.Design.xml",
         "microsoft.entityframeworkcore.design.9.0.0-preview.2.24128.4.nupkg.sha512",
         "microsoft.entityframeworkcore.design.nuspec"
+      ]
+    },
+    "Microsoft.EntityFrameworkCore.InMemory/9.0.0-preview.2.24128.4": {
+      "sha512": "QiNPE9fwTzZS3v6WfCdwyaTRxj7sP/kWziLmWEOqRk5uosmzoev2285aQY9FUj5p9Enzr5uUnlUKnl3adfMa5w==",
+      "type": "package",
+      "path": "microsoft.entityframeworkcore.inmemory/9.0.0-preview.2.24128.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "PACKAGE.md",
+        "lib/net8.0/Microsoft.EntityFrameworkCore.InMemory.dll",
+        "lib/net8.0/Microsoft.EntityFrameworkCore.InMemory.xml",
+        "microsoft.entityframeworkcore.inmemory.9.0.0-preview.2.24128.4.nupkg.sha512",
+        "microsoft.entityframeworkcore.inmemory.nuspec"
       ]
     },
     "Microsoft.EntityFrameworkCore.Relational/9.0.0-preview.2.24128.4": {

@@ -236,3 +236,4 @@ C:\Users\Ivan\source\repos\My4Notes\My4Notes.Web\obj\Debug\net8.0\ref\My4Notes.W
 C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Web\bin\Debug\net8.0\My4Notes.Services.dll
 C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Web\bin\Debug\net8.0\My4Notes.Services.pdb
 C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Web\obj\Debug\net8.0\My4Notes.Web.sourcelink.json
+C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Web\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.InMemory.dll

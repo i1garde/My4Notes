@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
+    "\\My4Notes.Services",
     "\\My4Notes.Web"
   ],
-  "SelectedNode": "\\My4Notes.Web\\Program.cs",
+  "SelectedNode": "\\My4Notes.Services\\NotesService.cs",
   "PreviewInSolutionExplorer": false
 }

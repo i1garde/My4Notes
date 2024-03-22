@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5+jYY58uNGKSfxS58wo4GL8myAfYvYpvthIS45vJXJuJUpUu2g/+79EgSyHz142uSOcbRb/k0AXw5H/z5rK5NA==",
+  "dgSpecHash": "1GGE5cqN6ynHWEizHY3nRzNU0WzOewAmx3E+ZZuZIMKYxqcCpxS51gAbs4W/uYfEgdmUlf0OerMCaCWMCOn25g==",
   "success": true,
   "projectFilePath": "C:\\Users\\Ivan\\RiderProjects\\My4Notes\\My4Notes.Web\\My4Notes.Web.csproj",
   "expectedPackageFiles": [
@@ -15,6 +15,7 @@
     "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\9.0.0-preview.2.24128.4\\microsoft.entityframeworkcore.abstractions.9.0.0-preview.2.24128.4.nupkg.sha512",
     "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\9.0.0-preview.2.24128.4\\microsoft.entityframeworkcore.analyzers.9.0.0-preview.2.24128.4.nupkg.sha512",
     "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.entityframeworkcore.design\\9.0.0-preview.2.24128.4\\microsoft.entityframeworkcore.design.9.0.0-preview.2.24128.4.nupkg.sha512",
+    "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\9.0.0-preview.2.24128.4\\microsoft.entityframeworkcore.inmemory.9.0.0-preview.2.24128.4.nupkg.sha512",
     "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\9.0.0-preview.2.24128.4\\microsoft.entityframeworkcore.relational.9.0.0-preview.2.24128.4.nupkg.sha512",
     "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\9.0.0-preview.2.24128.4\\microsoft.entityframeworkcore.tools.9.0.0-preview.2.24128.4.nupkg.sha512",
     "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\9.0.0-preview.2.24128.5\\microsoft.extensions.caching.abstractions.9.0.0-preview.2.24128.5.nupkg.sha512",

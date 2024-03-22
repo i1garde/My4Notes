@@ -38,6 +38,17 @@
         }
       },
       "Microsoft.EntityFrameworkCore.Analyzers/9.0.0-preview.2.24128.4": {},
+      "Microsoft.EntityFrameworkCore.InMemory/9.0.0-preview.2.24128.4": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "9.0.0-preview.2.24128.4"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.EntityFrameworkCore.InMemory.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.24.12804"
+          }
+        }
+      },
       "Microsoft.EntityFrameworkCore.Relational/9.0.0-preview.1.24081.2": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "9.0.0-preview.2.24128.4",
@@ -178,6 +189,7 @@
       "My4Notes.DatabaseAccess/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "9.0.0-preview.2.24128.4",
+          "Microsoft.EntityFrameworkCore.InMemory": "9.0.0-preview.2.24128.4",
           "My4Notes.Entities": "1.0.0",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "9.0.0-preview.1"
         },
@@ -218,6 +230,13 @@
       "sha512": "sha512-eK3lvFCvt/LBgk2xjb5q8moHgHpTnZ5pnINayaT4feRpDnQZ8ZCRBoHJ9f3EQuXN8vaWObeaaGdcqBhTQ1u+2w==",
       "path": "microsoft.entityframeworkcore.analyzers/9.0.0-preview.2.24128.4",
       "hashPath": "microsoft.entityframeworkcore.analyzers.9.0.0-preview.2.24128.4.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.InMemory/9.0.0-preview.2.24128.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QiNPE9fwTzZS3v6WfCdwyaTRxj7sP/kWziLmWEOqRk5uosmzoev2285aQY9FUj5p9Enzr5uUnlUKnl3adfMa5w==",
+      "path": "microsoft.entityframeworkcore.inmemory/9.0.0-preview.2.24128.4",
+      "hashPath": "microsoft.entityframeworkcore.inmemory.9.0.0-preview.2.24128.4.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore.Relational/9.0.0-preview.1.24081.2": {
       "type": "package",
