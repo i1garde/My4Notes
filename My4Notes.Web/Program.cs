@@ -60,6 +60,13 @@ app.MapGet("/notes/{id}", async (int id, IMediator _mediator) =>
     return new RazorComponentResult<GetNote>(new { Note = note });
 });
 
+app.MapPost("/notes/{id}/delete", async (int id, IMediator _mediator, HttpContext context) =>
+{
+    var command = new DeleteNoteCommand() { Id = id };
+    var note = await _mediator.Send(command);
+    context.Response.Redirect("/");
+});
+
 app.MapPut("/notes/{id}", async (
     [FromForm] int id,
     [FromForm] string title, 
@@ -103,7 +110,8 @@ app.MapPost("/createNote",
         [FromForm] string title,
         [FromForm] string text,
         HttpContext context,
-        IMediator _mediator) =>
+        IMediator _mediator
+        ) =>
     {
         var command = new CreateNoteCommand()
         {

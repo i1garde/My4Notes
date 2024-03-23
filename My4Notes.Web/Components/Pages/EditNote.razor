@@ -10,8 +10,17 @@
             <div class="col-2">
                 <input type="text" class="form-control" name="title" placeholder="Edit title" aria-label="Edit title" value="@Note.Title">
             </div>
-            <div class="col-8 text-center">
+            <div class="col-1">
+                <button type="button" class="btn btn-danger"
+                        hx-post="/notes/@Note.Id/delete" hx-target="body" hx-swap="outerHTML">
+                    Delete note
+                </button>
+            </div>
+            <div class="col-6 text-center">
                 @Note.formatCreationDate(@Note)
+            </div>
+            <div class="col-1">
+                
             </div>
             <div class="col-1">
                 <input type="submit" class="btn btn-light" value="Save">

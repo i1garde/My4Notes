@@ -4,7 +4,7 @@
 
 <div class="modal-dialog">
   <div class="modal-content">
-    <form id="notesForm" hx-post="/createNote" hx-target="body">
+    <form id="notesForm" hx-post="/createNote" hx-target="body" hx-swap="outerHTML">
       <input name="@Token.FormFieldName" type="hidden" value="@Token.RequestToken" />
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalLabel">Create new note</h1>
