@@ -1,14 +1,3 @@
-C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Entities\bin\Debug\net8.0\My4Notes.Entities.deps.json
-C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Entities\bin\Debug\net8.0\My4Notes.Entities.dll
-C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Entities\bin\Debug\net8.0\My4Notes.Entities.pdb
-C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Entities\obj\Debug\net8.0\My4Notes.Entities.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Entities\obj\Debug\net8.0\My4Notes.Entities.AssemblyInfoInputs.cache
-C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Entities\obj\Debug\net8.0\My4Notes.Entities.AssemblyInfo.cs
-C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Entities\obj\Debug\net8.0\My4Notes.Entities.csproj.CoreCompileInputs.cache
-C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Entities\obj\Debug\net8.0\My4Notes.Entities.dll
-C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Entities\obj\Debug\net8.0\refint\My4Notes.Entities.dll
-C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Entities\obj\Debug\net8.0\My4Notes.Entities.pdb
-C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Entities\obj\Debug\net8.0\ref\My4Notes.Entities.dll
 C:\Users\Ivan\source\repos\My4Notes\My4Notes.Entities\bin\Debug\net8.0\My4Notes.Entities.deps.json
 C:\Users\Ivan\source\repos\My4Notes\My4Notes.Entities\bin\Debug\net8.0\My4Notes.Entities.dll
 C:\Users\Ivan\source\repos\My4Notes\My4Notes.Entities\bin\Debug\net8.0\My4Notes.Entities.pdb
@@ -21,4 +10,3 @@ C:\Users\Ivan\source\repos\My4Notes\My4Notes.Entities\obj\Debug\net8.0\My4Notes.
 C:\Users\Ivan\source\repos\My4Notes\My4Notes.Entities\obj\Debug\net8.0\refint\My4Notes.Entities.dll
 C:\Users\Ivan\source\repos\My4Notes\My4Notes.Entities\obj\Debug\net8.0\My4Notes.Entities.pdb
 C:\Users\Ivan\source\repos\My4Notes\My4Notes.Entities\obj\Debug\net8.0\ref\My4Notes.Entities.dll
-C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Entities\obj\Debug\net8.0\My4Notes.Entities.sourcelink.json
