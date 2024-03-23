@@ -38,32 +38,35 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseAntiforgery();
 
-app.MapGet("/", async (ApplicationState appState, IMediator _mediator) =>
+app.MapGet("/", async (ApplicationState appState, IMediator _mediator, ILogger<IndexPage> logger) =>
 {
     var query = new GetNotesCountQuery();
     appState.NotesCount = await _mediator.Send(query);
+    logger.LogInformation("Index page load.");
     return new RazorComponentResult<IndexPage>();
 });
 
-app.MapGet("/notes", async (IMediator _mediator) =>
+app.MapGet("/notes", async (IMediator _mediator, ILogger<NotesList> logger) =>
 {
     var query = new GetAllNotesQuery();
     var notes = await _mediator.Send(query);
+    logger.LogInformation("Fetch notes list.");
     return new RazorComponentResult<NotesList>(new { Notes = notes });
 });
 
-app.MapGet("/notes/{id}", async (int id, IMediator _mediator) =>
+app.MapGet("/notes/{id}", async (int id, IMediator _mediator, ILogger<GetNote> logger) =>
 {
     var query = new GetNoteByIdQuery() { Id = id };
     var note = await _mediator.Send(query);
-    
+    logger.LogInformation($"Get note by ID: {id}");
     return new RazorComponentResult<GetNote>(new { Note = note });
 });
 
-app.MapPost("/notes/{id}/delete", async (int id, IMediator _mediator, HttpContext context) =>
+app.MapPost("/notes/{id}/delete", async (int id, IMediator _mediator, HttpContext context, ILogger<IndexPage> logger) =>
 {
     var command = new DeleteNoteCommand() { Id = id };
     var note = await _mediator.Send(command);
+    logger.LogInformation($"Delete note with ID: {id}");
     context.Response.Redirect("/");
 });
 
@@ -71,7 +74,8 @@ app.MapPut("/notes/{id}", async (
     [FromForm] int id,
     [FromForm] string title, 
     [FromForm] string text,
-    IMediator _mediator) =>
+    IMediator _mediator,
+    ILogger<HideNote> logger) =>
 {
     var command = new UpdateNoteCommand()
     {
@@ -80,28 +84,36 @@ app.MapPut("/notes/{id}", async (
         Text = text,
     };
     var updNote = await _mediator.Send(command);
-    
+    logger.LogInformation($"Update note ID: {id}, Title: {title}, Text: {text}");
     return new RazorComponentResult<HideNote>(new { Note = updNote });
 });
 
-app.MapGet("/notes/{id}/edit", async (HttpContext context, IAntiforgery antiforgery, int id, IMediator _mediator) =>
+app.MapGet("/notes/{id}/edit", async (
+    HttpContext context, 
+    IAntiforgery antiforgery, 
+    int id, 
+    IMediator _mediator,
+    ILogger<EditNote> logger) =>
 {
     var token = antiforgery.GetAndStoreTokens(context);
     var query = new GetNoteByIdQuery() { Id = id };
     var note = await _mediator.Send(query);
+    logger.LogInformation($"Load edit note page for ID: {id}");
     return new RazorComponentResult<EditNote>(new { Note = note, Token = token });
 });
 
-app.MapGet("/notes/{id}/hide", async (int id, IMediator _mediator) =>
+app.MapGet("/notes/{id}/hide", async (int id, IMediator _mediator, ILogger<HideNote> logger) =>
 {
     var query = new GetNoteByIdQuery() { Id = id };
     var note = await _mediator.Send(query);
+    logger.LogInformation($"Hide note with ID: {id}");
     return new RazorComponentResult<HideNote>(new { Note = note });
 });
 
-app.MapGet("/createNote", (HttpContext context, IAntiforgery antiforgery) =>
+app.MapGet("/createNote", (HttpContext context, IAntiforgery antiforgery, ILogger<CreateNote> logger) =>
 {
     var token = antiforgery.GetAndStoreTokens(context);
+    logger.LogInformation("Create note modal popup.");
     return new RazorComponentResult<CreateNote>(new { Token = token });
 });
 
@@ -110,7 +122,8 @@ app.MapPost("/createNote",
         [FromForm] string title,
         [FromForm] string text,
         HttpContext context,
-        IMediator _mediator
+        IMediator _mediator,
+        ILogger<CreateNote> logger
         ) =>
     {
         var command = new CreateNoteCommand()
@@ -120,22 +133,27 @@ app.MapPost("/createNote",
             CreationDate = DateTime.UtcNow
         };
         await _mediator.Send(command);
+        logger.LogInformation($"Create note Title: {title}, Text: {text}.");
         context.Response.Redirect("/");
     }
 );
 
 app.MapGet("/search",
-    (HttpContext context, IAntiforgery antiforgery) => {
+    (HttpContext context, IAntiforgery antiforgery, ILogger<SearchBar> logger) => {
         var token = antiforgery.GetAndStoreTokens(context);
+        logger.LogInformation("Search bar widget load.");
         return new RazorComponentResult<SearchBar>(new { Token = token });
     });
 
 app.MapPost("/notes/search",
     async (
         [FromForm] string search,
-        IMediator _mediator) => {
+        IMediator _mediator,
+        ILogger<SearchBar> logger
+        ) => {
         var query = new SearchNotesQuery() { SearchText = search };
         var searchedList = await _mediator.Send(query);
+        logger.LogInformation("Update notes list via search bar.");
         return new RazorComponentResult<NotesList>(new { Notes = searchedList });
     });
 
