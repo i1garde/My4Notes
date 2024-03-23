@@ -1,5 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 using My4Notes.DatabaseAccess;
 using My4Notes.Entities;
 
@@ -11,10 +12,12 @@ namespace My4Notes.Services
     public class NotesService
     {
         private readonly ApplicationDbContext _applicationDbContext;
+        private readonly IMemoryCache _cache;
 
-        public NotesService(ApplicationDbContext applicationDbContext)
+        public NotesService(ApplicationDbContext applicationDbContext, IMemoryCache cache)
         {
             _applicationDbContext = applicationDbContext;
+            _cache = cache;
         }
 
         /// <summary>
@@ -23,7 +26,17 @@ namespace My4Notes.Services
         /// <returns>The number of notes stored in the database.</returns>
         public async Task<int> GetNotesCountAsync()
         {
-            return await _applicationDbContext.Notes.CountAsync();
+            var notesCount = await _cache.GetOrCreateAsync("notesCount", async entry =>
+            {
+                entry.SlidingExpiration = TimeSpan.FromMinutes(1);
+                return await _applicationDbContext.Notes.AsNoTracking().CountAsync();
+            });
+
+            Console.WriteLine($"IN-MEMORY CACHE: {notesCount}");
+
+            return notesCount;
+            
+            //return await _applicationDbContext.Notes.AsNoTracking().CountAsync();
         }
 
         /// <summary>
@@ -46,6 +59,8 @@ namespace My4Notes.Services
         {
             _applicationDbContext.Notes.Add(note);
             await _applicationDbContext.SaveChangesAsync();
+            _cache.Remove("notes");
+            _cache.Remove("notesCount");
         }
 
         /// <summary>
@@ -57,15 +72,22 @@ namespace My4Notes.Services
         {
             _applicationDbContext.Notes.Update(note);
             await _applicationDbContext.SaveChangesAsync();
+            _cache.Remove("notes");
+            _cache.Remove("notesCount");
         }
 
         /// <summary>
         /// Asynchronously retrieves all notes from the database.
         /// </summary>
-        /// <returns>A task that represents the asynchronous operation. The task result contains a list of notes.</returns>
-        public async Task<List<Note>> GetNotesAsync()
+        /// <returns>A task that represents the asynchronous operation. The task result contains a list of notes or null.</returns>
+        public async Task<List<Note>?> GetNotesAsync()
         {
-            return await _applicationDbContext.Notes.ToListAsync();
+            return await _cache.GetOrCreateAsync("notes", async entry =>
+            {
+                entry.SlidingExpiration = TimeSpan.FromMinutes(5);
+                return await _applicationDbContext.Notes.AsNoTracking().OrderByDescending(x => x.CreationDate).ToListAsync();
+            });
+            // return await _applicationDbContext.Notes.AsNoTracking().OrderByDescending(x => x.CreationDate).ToListAsync();
         }
 
         /// <summary>
@@ -76,7 +98,7 @@ namespace My4Notes.Services
         public async Task<List<Note>> GetNotesByTitleAsync(string search)
         {
             var loweredSerach = search.ToLower();
-            return await _applicationDbContext.Notes
+            return await _applicationDbContext.Notes.AsNoTracking()
                 .Where(n => n.Title.ToLower().Contains(loweredSerach) || n.Text.ToLower().Contains(loweredSerach))
                 .ToListAsync();
         }

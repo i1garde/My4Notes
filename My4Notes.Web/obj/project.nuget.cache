@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "1GGE5cqN6ynHWEizHY3nRzNU0WzOewAmx3E+ZZuZIMKYxqcCpxS51gAbs4W/uYfEgdmUlf0OerMCaCWMCOn25g==",
+  "dgSpecHash": "3gCiI6m6K/EUVUTML36Lw7of0KjH/GuXNVT2yxi1ZrOeiCkTcNF0WnYidzU98nW36nkbpMDlL23CKbXtH/O1Zg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Ivan\\RiderProjects\\My4Notes\\My4Notes.Web\\My4Notes.Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ivan\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\Ivan\\.nuget\\packages\\mediatr\\12.2.0\\mediatr.12.2.0.nupkg.sha512",
+    "C:\\Users\\Ivan\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",
     "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.3.4\\microsoft.codeanalysis.analyzers.3.3.4.nupkg.sha512",
     "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.codeanalysis.common\\4.8.0\\microsoft.codeanalysis.common.4.8.0.nupkg.sha512",

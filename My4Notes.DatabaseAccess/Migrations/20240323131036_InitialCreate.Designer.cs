@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace My4Notes.DatabaseAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240321162920_InitialCreate")]
+    [Migration("20240323131036_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -33,16 +33,15 @@ namespace My4Notes.DatabaseAccess.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTimeOffset>("CreationDate")
+                    b.Property<DateTime>("CreationDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Text")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(255)
+                        .HasColumnType("character varying(255)");
 
                     b.HasKey("Id");
 

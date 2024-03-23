@@ -3,7 +3,6 @@ using Moq;
 using Moq.EntityFrameworkCore;
 using My4Notes.DatabaseAccess;
 using My4Notes.Entities;
-using My4Notes.Services;
 
 namespace My4Notes.Tests;
 

@@ -18,9 +18,9 @@ namespace My4Notes.DatabaseAccess.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Title = table.Column<string>(type: "text", nullable: false),
-                    Text = table.Column<string>(type: "text", nullable: false),
-                    CreationDate = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false)
+                    Title = table.Column<string>(type: "character varying(255)", maxLength: 255, nullable: true),
+                    Text = table.Column<string>(type: "text", nullable: true),
+                    CreationDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
                 {

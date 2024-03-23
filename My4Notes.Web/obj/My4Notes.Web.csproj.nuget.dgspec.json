@@ -138,14 +138,14 @@
         }
       }
     },
-    "C:\\Users\\Ivan\\RiderProjects\\My4Notes\\My4Notes.Services\\My4Notes.Services.csproj": {
+    "C:\\Users\\Ivan\\RiderProjects\\My4Notes\\My4Notes.Resources\\My4Notes.Resources.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ivan\\RiderProjects\\My4Notes\\My4Notes.Services\\My4Notes.Services.csproj",
-        "projectName": "My4Notes.Services",
-        "projectPath": "C:\\Users\\Ivan\\RiderProjects\\My4Notes\\My4Notes.Services\\My4Notes.Services.csproj",
+        "projectUniqueName": "C:\\Users\\Ivan\\RiderProjects\\My4Notes\\My4Notes.Resources\\My4Notes.Resources.csproj",
+        "projectName": "My4Notes.Resources",
+        "projectPath": "C:\\Users\\Ivan\\RiderProjects\\My4Notes\\My4Notes.Resources\\My4Notes.Resources.csproj",
         "packagesPath": "C:\\Users\\Ivan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ivan\\RiderProjects\\My4Notes\\My4Notes.Services\\obj\\",
+        "outputPath": "C:\\Users\\Ivan\\RiderProjects\\My4Notes\\My4Notes.Resources\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ivan\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -180,6 +180,16 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.2.0, )"
+            },
+            "MediatR.Contracts": {
+              "target": "Package",
+              "version": "[2.0.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -227,8 +237,8 @@
               "C:\\Users\\Ivan\\RiderProjects\\My4Notes\\My4Notes.Entities\\My4Notes.Entities.csproj": {
                 "projectPath": "C:\\Users\\Ivan\\RiderProjects\\My4Notes\\My4Notes.Entities\\My4Notes.Entities.csproj"
               },
-              "C:\\Users\\Ivan\\RiderProjects\\My4Notes\\My4Notes.Services\\My4Notes.Services.csproj": {
-                "projectPath": "C:\\Users\\Ivan\\RiderProjects\\My4Notes\\My4Notes.Services\\My4Notes.Services.csproj"
+              "C:\\Users\\Ivan\\RiderProjects\\My4Notes\\My4Notes.Resources\\My4Notes.Resources.csproj": {
+                "projectPath": "C:\\Users\\Ivan\\RiderProjects\\My4Notes\\My4Notes.Resources\\My4Notes.Resources.csproj"
               }
             }
           }
@@ -243,6 +253,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.2.0, )"
+            },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",

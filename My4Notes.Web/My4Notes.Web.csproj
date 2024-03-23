@@ -8,10 +8,11 @@
 
     <ItemGroup>
       <ProjectReference Include="..\My4Notes.Entities\My4Notes.Entities.csproj" />
-      <ProjectReference Include="..\My4Notes.Services\My4Notes.Services.csproj" />
+      <ProjectReference Include="..\My4Notes.Resources\My4Notes.Resources.csproj" />
     </ItemGroup>
 
     <ItemGroup>
+      <PackageReference Include="MediatR" Version="12.2.0" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.0-preview.2.24128.4">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
