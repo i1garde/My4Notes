@@ -3,6 +3,9 @@ using System.Runtime.CompilerServices;
 
 namespace My4Notes.Entities;
 
+/// <summary>
+/// Represents a note in the application.
+/// </summary>
 public class Note
 {
     public int Id { get; set; }
@@ -10,12 +13,12 @@ public class Note
     public string? Title { get; set; }
     public string? Text { get; set; }
     public DateTime CreationDate { get; set; }
-
+    
     /// <summary>
-    /// Formats the creation date of the note to display the number of days since the note was created.
+    /// Formats the creation date of a note into a relative time string.
     /// </summary>
-    /// <param name="note">The note whose creation date to format.</param>
-    /// <returns>A string that represents the number of days since the note was created.</returns>
+    /// <param name="note">The note whose creation date is to be formatted.</param>
+    /// <returns>A string representing the relative time since the note was created.</returns>
     public static string formatCreationDate(Note note)
     {
         var creationTimeSpanUTC = DateTime.UtcNow - note.CreationDate;
