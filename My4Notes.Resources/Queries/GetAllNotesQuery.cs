@@ -3,7 +3,7 @@ using My4Notes.Entities;
 
 namespace My4Notes.Resources.Queries;
 
-public class GetAllNotesQuery : IRequest<IEnumerable<Note>>
+public class GetAllNotesQuery : IRequest<IEnumerable<Note>?>
 {
     public int Id { get; set; }
     public string? Title { get; set; }

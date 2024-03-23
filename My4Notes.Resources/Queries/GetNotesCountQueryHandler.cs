@@ -1,19 +1,18 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 using My4Notes.DatabaseAccess;
 using My4Notes.Entities;
 
 namespace My4Notes.Resources.Queries;
 
-public class GetNotesCountQueryHandler : IRequestHandler<GetNotesCountQuery, int>
+public class GetNotesCountQueryHandler(ApplicationDbContext context, IMemoryCache memoryCache) 
+    : IRequestHandler<GetNotesCountQuery, int>
 {
-    private readonly ApplicationDbContext _context;
-    
-    public GetNotesCountQueryHandler(ApplicationDbContext context)
-    {
-        _context = context;
-    }
-
     public async Task<int> Handle(GetNotesCountQuery request, CancellationToken cancellationToken) =>
-        await _context.Notes.CountAsync();
+        await memoryCache.GetOrCreateAsync("notesCount", async entry =>
+        {
+            entry.SlidingExpiration = TimeSpan.FromSeconds(60);
+            return await context.Notes.AsNoTracking().CountAsync();
+        });
 }
