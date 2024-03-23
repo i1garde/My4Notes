@@ -8,10 +8,10 @@
         <input name="id" type="hidden" value="@Note.Id" />
         <div class="row align-items-center mb-3">
             <div class="col-2">
-                <input type="text" class="form-control" name="title" placeholder="Edit title" aria-label="Edit title" value="@Note.Title">
+                <input id="editTitleInput" type="text" class="form-control" name="title" placeholder="Edit title" aria-label="Edit title" value="@Note.Title">
             </div>
             <div class="col-1">
-                <button type="button" class="btn btn-danger"
+                <button id="deleteButton" type="button" class="btn btn-danger"
                         hx-post="/notes/@Note.Id/delete" hx-target="body" hx-swap="outerHTML">
                     Delete note
                 </button>
@@ -23,7 +23,7 @@
                 
             </div>
             <div class="col-1">
-                <input type="submit" class="btn btn-light" value="Save">
+                <input id="saveButton" type="submit" class="btn btn-light" value="Save">
             </div>
             <div class="col-1">
                 <button class="btn btn-light" hx-get="/notes/@Note.Id/hide" hx-target="#noteContainer-@Note.Id" hx-swap="outerHTML">Cancel edit</button>
@@ -32,7 +32,7 @@
     </form>
     <div class="row align-items-center">
         <div class="col">
-            <textarea class="form-control" name="text" form="editform" rows="3">@Note.Text</textarea>
+            <textarea id="editTextInput" class="form-control" name="text" form="editform" rows="3">@Note.Text</textarea>
         </div>
     </div>
 </div>

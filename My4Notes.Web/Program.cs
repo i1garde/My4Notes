@@ -1,5 +1,6 @@
 using System.ComponentModel;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using MediatR;
 using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.AspNetCore.Http.HttpResults;
@@ -158,6 +159,8 @@ app.MapPost("/notes/search",
     });
 
 app.Run();
+
+public partial class Program { }
 
 public class ApplicationState
 {

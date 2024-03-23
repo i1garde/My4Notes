@@ -20,7 +20,8 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <button hx-get="/createNote"
+                <button id="createNoteButton"
+                        hx-get="/createNote"
                         hx-target="#newNoteModal"
                         hx-trigger="click"
                         type="button"
@@ -30,7 +31,7 @@
                     New note
                 </button>
                 <div id="searchBar" hx-get="/search" hx-trigger="load" hx-swap="innerHTML"></div>
-                <div>Total notes: @applicationState.NotesCount</div>
+                <div id="totalNotesCounter">Total notes: @applicationState.NotesCount</div>
             </div>
         </nav>
     </header>

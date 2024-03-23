@@ -11,9 +11,11 @@
 
     <ItemGroup>
         <PackageReference Include="MediatR" Version="12.2.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.3" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.0"/>
         <PackageReference Include="Moq" Version="4.20.70" />
         <PackageReference Include="Moq.EntityFrameworkCore" Version="8.0.1.2" />
+        <PackageReference Include="Selenium.WebDriver" Version="4.18.1" />
         <PackageReference Include="xunit" Version="2.4.2"/>
         <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -23,6 +25,13 @@
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\My4Notes.DatabaseAccess\My4Notes.DatabaseAccess.csproj" />
+      <ProjectReference Include="..\My4Notes.Entities\My4Notes.Entities.csproj" />
+      <ProjectReference Include="..\My4Notes.Resources\My4Notes.Resources.csproj" />
+      <ProjectReference Include="..\My4Notes.Web\My4Notes.Web.csproj" />
     </ItemGroup>
 
 </Project>

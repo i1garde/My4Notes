@@ -9,10 +9,10 @@
             @Note.formatCreationDate(@Note)
         </div>
         <div class="col-1">
-            <button class="btn btn-light" hx-get="/notes/@Note.Id" hx-target="#noteContainer-@Note.Id" hx-swap="outerHTML">View note</button>
+            <button id="viewNoteButton" class="btn btn-light" hx-get="/notes/@Note.Id" hx-target="#noteContainer-@Note.Id" hx-swap="outerHTML">View note</button>
         </div>
         <div class="col-1">
-            <button class="btn btn-light" hx-get="/notes/@Note.Id/edit" hx-target="#noteContainer-@Note.Id" hx-swap="outerHTML">Edit note</button>
+            <button id="editNoteButton" class="btn btn-light" hx-get="/notes/@Note.Id/edit" hx-target="#noteContainer-@Note.Id" hx-swap="outerHTML">Edit note</button>
         </div>
     </div>
 </div>

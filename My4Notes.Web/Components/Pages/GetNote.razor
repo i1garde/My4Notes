@@ -2,22 +2,22 @@
 
 <div id="noteContainer-@Note.Id" class="container p-3 my-3" style="max-width: 95%; background-color: #d9d9d7; border-style: solid; border-color: #b8b8b8;">
     <div class="row align-items-center mb-3">
-        <div class="col-2">
+        <div id="noteItemTitle" class="col-2">
             @Note.Title
         </div>
         <div class="col-8 text-center">
             @Note.formatCreationDate(@Note)
         </div>
         <div class="col-1">
-            <button class="btn btn-light" hx-get="/notes/@Note.Id/hide" hx-target="#noteContainer-@Note.Id" hx-swap="outerHTML">Hide note</button>
+            <button id="hideButton"  class="btn btn-light" hx-get="/notes/@Note.Id/hide" hx-target="#noteContainer-@Note.Id" hx-swap="outerHTML">Hide note</button>
         </div>
         <div class="col-1">
-            <button class="btn btn-light" hx-get="/notes/@Note.Id/edit" hx-target="#noteContainer-@Note.Id" hx-swap="outerHTML">Edit note</button>
+            <button id="editNoteButton" class="btn btn-light" hx-get="/notes/@Note.Id/edit" hx-target="#noteContainer-@Note.Id" hx-swap="outerHTML">Edit note</button>
         </div>
     </div>
     <div class="row align-items-center">
         <div class="col">
-            <textarea readonly class="form-control" id="formControlTextarea1" rows="3">@Note.Text</textarea>
+            <textarea id="noteTextTextarea" readonly class="form-control" rows="3">@Note.Text</textarea>
         </div>
     </div>
 </div>

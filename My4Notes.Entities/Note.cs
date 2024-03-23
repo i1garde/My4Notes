@@ -22,7 +22,7 @@ public class Note
     public static string formatCreationDate(Note note)
     {
         var creationTimeSpanUTC = DateTime.UtcNow - note.CreationDate;
-        var minutes = creationTimeSpanUTC.Minutes;
+        var minutes = (int)creationTimeSpanUTC.TotalMinutes;
         string result = minutes switch
         {
             var m when m < 1 => "Just now",

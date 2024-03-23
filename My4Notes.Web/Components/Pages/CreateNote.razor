@@ -12,16 +12,16 @@
       <div class="modal-body">
         <div class="form-group">
           <label><b>Title</b></label>
-          <input type="text" class="form-control" name="title" placeholder="Title" aria-label="Title" maxlength="255">
+          <input id="titleInput" type="text" class="form-control" name="title" placeholder="Title" aria-label="Title" maxlength="255">
         </div>
         <div class="form-group">
           <label><b>Text</b></label>
-          <textarea class="form-control" name="text" form="notesForm" rows="3" placeholder="Text"></textarea>
+          <textarea id="textInput" class="form-control" name="text" form="notesForm" rows="3" placeholder="Text"></textarea>
         </div>
 
       </div>
       <div class="modal-footer">
-        <input type="submit" class="btn btn-dark" value="Add note" data-bs-dismiss="modal">
+        <input id="submitButton" type="submit" class="btn btn-dark" value="Add note" data-bs-dismiss="modal">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>
     </form>
