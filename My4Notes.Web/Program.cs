@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Caching.Memory;
 using My4Notes.DatabaseAccess;
 using My4Notes.Entities;
 using My4Notes.Resources;
@@ -20,7 +19,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorComponents();
 builder.Services.AddAntiforgery();
-builder.Services.AddDbContext<ApplicationDbContext>();
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("My4NotesDatabase")));
 builder.Services.AddSingleton<ApplicationState>();
 builder.Services.AddMemoryCache();
 builder.Services.AddApplication();
