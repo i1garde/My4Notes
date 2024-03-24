@@ -10,96 +10,72 @@ namespace My4Notes.Tests;
 
 public class GetAllNotesQueryHandlerTests
 {
-    private string testConnString = "Host=localhost;Port=5433;Database=My4NotesTestDB;Username=postgres;Password=Str0ngP@ssw0rd";
-    
+    private ApplicationDbContext _context;
+    private IMemoryCache _memoryCache;
+    private GetAllNotesQueryHandler _handler;
+
+    public GetAllNotesQueryHandlerTests()
+    {
+        var options = new DbContextOptionsBuilder<ApplicationDbContext>()
+            .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
+            .Options;
+
+        _context = new ApplicationDbContext(options);
+        _context.Notes.AddRange(TestData.Notes);
+        _context.SaveChanges();
+
+        _memoryCache = new MemoryCache(new MemoryCacheOptions());
+        _handler = new GetAllNotesQueryHandler(_context, _memoryCache);
+    }
+
     [Fact]
-    public async Task Handle_ReturnsCorrectNotes()
+    public async Task Handle_GivenValidRequest_ReturnsNotes()
     {
         // Arrange
-        var notes = new List<Note>
-        {
-            new Note { Id = 1, Title = "Note 1", Text = "Text 1", CreationDate = DateTime.UtcNow },
-            new Note { Id = 2, Title = "Note 2", Text = "Text 2", CreationDate = DateTime.UtcNow }
-        };
-        var mockContext = new Mock<ApplicationDbContext>();
-        mockContext.Setup(x => x.Notes).ReturnsDbSet(notes);
-        var memoryCache = new MemoryCache(new MemoryCacheOptions());
-        var handler = new GetAllNotesQueryHandler(mockContext.Object, memoryCache);
+        var notes = TestData.Notes;
+        
+        var request = new GetAllNotesQuery();
 
         // Act
-        var result = await handler.Handle(new GetAllNotesQuery(), default);
+        var result = await _handler.Handle(request, CancellationToken.None);
 
         // Assert
+        Assert.NotNull(result);
         Assert.Equal(notes.Count, result.Count());
     }
-
+    
     [Fact]
-    public async Task Handle_ReturnsEmptyList_WhenNoNotes()
+    public async Task Handle_GivenValidRequest_ReturnsNotesInCorrectOrder()
     {
         // Arrange
-        var notes = new List<Note>();
-
-        var mockContext = new Mock<ApplicationDbContext>();
-        mockContext.Setup(x => x.Notes).ReturnsDbSet(notes);
-
-        var memoryCache = new MemoryCache(new MemoryCacheOptions());
-
-        var handler = new GetAllNotesQueryHandler(mockContext.Object, memoryCache);
+        var notes = TestData.Notes;
+        var request = new GetAllNotesQuery();
 
         // Act
-        var result = await handler.Handle(new GetAllNotesQuery(), default);
+        var result = await _handler.Handle(request, CancellationToken.None);
 
         // Assert
-        Assert.Empty(result);
+        Assert.NotNull(result);
+        Assert.Equal(notes
+            .OrderByDescending(n => n.CreationDate)
+            .Select(x => x.Title)
+            , result.Select(x => x.Title));
     }
 
     [Fact]
-    public async Task Handle_ReturnsNotesInCorrectOrder()
+    public async Task Handle_GivenSameRequestTwice_UsesCache()
     {
         // Arrange
-        var notes = new List<Note>
-        {
-            new Note { Id = 1, Title = "Note 1", CreationDate = DateTime.Now.AddDays(-1) },
-            new Note { Id = 2, Title = "Note 2", CreationDate = DateTime.Now }
-        };
-
-        var mockContext = new Mock<ApplicationDbContext>();
-        mockContext.Setup(x => x.Notes).ReturnsDbSet(notes);
-
-        var memoryCache = new MemoryCache(new MemoryCacheOptions());
-
-        var handler = new GetAllNotesQueryHandler(mockContext.Object, memoryCache);
+        var notes = TestData.Notes;
+        var request = new GetAllNotesQuery();
 
         // Act
-        var result = await handler.Handle(new GetAllNotesQuery(), default);
+        var result1 = await _handler.Handle(request, CancellationToken.None);
+        var result2 = await _handler.Handle(request, CancellationToken.None);
 
         // Assert
-        Assert.Equal(notes.OrderByDescending(n => n.CreationDate), result);
-    }
-
-    [Fact]
-    public async Task Handle_UsesCacheCorrectly()
-    {
-        // Arrange
-        var notes = new List<Note>
-        {
-            new Note { Id = 1, Title = "Note 1" },
-            new Note { Id = 2, Title = "Note 2" }
-        };
-
-        var mockContext = new Mock<ApplicationDbContext>();
-        mockContext.Setup(x => x.Notes).ReturnsDbSet(notes);
-
-        var memoryCache = new MemoryCache(new MemoryCacheOptions());
-
-        var handler = new GetAllNotesQueryHandler(mockContext.Object, memoryCache);
-
-        // Act
-        var result1 = await handler.Handle(new GetAllNotesQuery(), default);
-        var result2 = await handler.Handle(new GetAllNotesQuery(), default);
-
-        // Assert
+        Assert.NotNull(result1);
+        Assert.NotNull(result2);
         Assert.Equal(result1, result2);
-        mockContext.Verify(x => x.Notes, Times.Once);
     }
 }

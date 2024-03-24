@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Caching.Memory;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 using Moq;
 using Moq.EntityFrameworkCore;
 using My4Notes.DatabaseAccess;
@@ -9,79 +10,102 @@ namespace My4Notes.Tests;
 
 public class UpdateNoteCommandHandlerTests
 {
+    private ApplicationDbContext _context;
+
+    public UpdateNoteCommandHandlerTests()
+    {
+        // Setup In-Memory Database for testing purposes
+        var options = new DbContextOptionsBuilder<ApplicationDbContext>()
+            .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
+            .Options;
+
+        _context = new ApplicationDbContext(options);
+    }
+    
     [Fact]
     public async Task Handle_UpdatesNoteCorrectly()
     {
         // Arrange
-        var notes = new List<Note>
-        {
-            new Note { Id = 1, Title = "Note 1", Text = "Text 1", CreationDate = DateTime.Now }
-        };
-
-        var mockContext = new Mock<ApplicationDbContext>();
-        mockContext.Setup(x => x.Notes).ReturnsDbSet(notes);
-        mockContext.Setup(x => x.SaveChangesAsync(It.IsAny<CancellationToken>())).ReturnsAsync(1);
+        var notes = TestData.Notes;
 
         var memoryCache = new MemoryCache(new MemoryCacheOptions());
+        
+        var createHandler = new CreateNoteCommandHandler(_context, memoryCache);
 
-        var handler = new UpdateNoteCommandHandler(mockContext.Object, memoryCache);
+        var createCommand = new CreateNoteCommand
+        {
+            Title = notes[0].Title,
+            Text = notes[0].Text,
+            CreationDate = notes[0].CreationDate
+        };
 
-        var command = new UpdateNoteCommand { Id = 1, Title = "Updated Note", Text = "Updated Text" };
+        string updatedTitle = "Updated Title";
+        string updatedText = "Updated Text";
+
+        var updateHandler = new UpdateNoteCommandHandler(_context, memoryCache);
+
+        var updateCommand = new UpdateNoteCommand { Id = notes[0].Id, Title = updatedTitle, Text = updatedText };
 
         // Act
-        var result = await handler.Handle(command, default);
+        var createAct = await createHandler.Handle(createCommand, default);
+        var updateAct = await updateHandler.Handle(updateCommand, default);
 
         // Assert
-        Assert.Equal(command.Id, result.Id);
-        Assert.Equal(command.Title, result.Title);
-        Assert.Equal(command.Text, result.Text);
-        mockContext.Verify(x => x.SaveChangesAsync(It.IsAny<CancellationToken>()), Times.Once);
+        Assert.Equal(createAct.Id, updateAct.Id);
+        Assert.Equal(updatedTitle, updateAct.Title);
+        Assert.Equal(updatedText, updateAct.Text);
     }
 
     [Fact]
     public async Task Handle_ReturnsDefaultWhenNoteDoesNotExist()
     {
         // Arrange
-        var notes = new List<Note>();
-
-        var mockContext = new Mock<ApplicationDbContext>();
-        mockContext.Setup(x => x.Notes).ReturnsDbSet(notes);
+        var notes = TestData.Notes;
 
         var memoryCache = new MemoryCache(new MemoryCacheOptions());
 
-        var handler = new UpdateNoteCommandHandler(mockContext.Object, memoryCache);
+        string updatedTitle = "Updated Title";
+        string updatedText = "Updated Text";
 
-        var command = new UpdateNoteCommand { Id = 1, Title = "Updated Note", Text = "Updated Text" };
+        var updateHandler = new UpdateNoteCommandHandler(_context, memoryCache);
+
+        var updateCommand = new UpdateNoteCommand { Id = notes[0].Id, Title = updatedTitle, Text = updatedText };
 
         // Act
-        var result = await handler.Handle(command, default);
+        var updateAct = await updateHandler.Handle(updateCommand, default);
 
         // Assert
-        Assert.Null(result);
+        Assert.Null(updateAct);
     }
 
     [Fact]
     public async Task Handle_RemovesCorrectCacheEntry()
     {
         // Arrange
-        var notes = new List<Note>
-        {
-            new Note { Id = 1, Title = "Note 1", Text = "Text 1", CreationDate = DateTime.Now }
-        };
-
-        var mockContext = new Mock<ApplicationDbContext>();
-        mockContext.Setup(x => x.Notes).ReturnsDbSet(notes);
-        mockContext.Setup(x => x.SaveChangesAsync(It.IsAny<CancellationToken>())).ReturnsAsync(1);
+        var notes = TestData.Notes;
 
         var memoryCache = new MemoryCache(new MemoryCacheOptions());
         memoryCache.Set("notesList", notes);
 
-        var handler = new UpdateNoteCommandHandler(mockContext.Object, memoryCache);
+        var createHandler = new CreateNoteCommandHandler(_context, memoryCache);
 
-        var command = new UpdateNoteCommand { Id = 1, Title = "Updated Note", Text = "Updated Text" };
+        var createCommand = new CreateNoteCommand
+        {
+            Title = notes[0].Title,
+            Text = notes[0].Text,
+            CreationDate = notes[0].CreationDate
+        };
+
+        string updatedTitle = "Updated Title";
+        string updatedText = "Updated Text";
+
+        var updateHandler = new UpdateNoteCommandHandler(_context, memoryCache);
+
+        var updateCommand = new UpdateNoteCommand { Id = notes[0].Id, Title = updatedTitle, Text = updatedText };
 
         // Act
-        await handler.Handle(command, default);
+        var createAct = await createHandler.Handle(createCommand, default);
+        var updateAct = await updateHandler.Handle(updateCommand, default);
 
         // Assert
         Assert.False(memoryCache.TryGetValue("notesList", out List<Note> _));

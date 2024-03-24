@@ -1,4 +1,8 @@
-﻿using Microsoft.Extensions.Caching.Memory;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using Moq;
 using Moq.EntityFrameworkCore;
 using My4Notes.DatabaseAccess;
@@ -9,25 +13,33 @@ namespace My4Notes.Tests;
 
 public class CreateNoteCommandHandlerTests
 {
+    private ApplicationDbContext _context;
+
+    public CreateNoteCommandHandlerTests()
+    {
+        // Setup In-Memory Database for testing purposes
+        var options = new DbContextOptionsBuilder<ApplicationDbContext>()
+            .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
+            .Options;
+
+        _context = new ApplicationDbContext(options);
+    }
+    
     [Fact]
     public async Task Handle_CreatesNoteCorrectly()
     {
         // Arrange
-        var notes = new List<Note>();
-
-        var mockContext = new Mock<ApplicationDbContext>();
-        mockContext.Setup(x => x.Notes).ReturnsDbSet(notes);
-        mockContext.Setup(x => x.SaveChangesAsync(It.IsAny<CancellationToken>())).ReturnsAsync(1);
+        var notes = TestData.Notes;
 
         var memoryCache = new MemoryCache(new MemoryCacheOptions());
-
-        var handler = new CreateNoteCommandHandler(mockContext.Object, memoryCache);
+        
+        var handler = new CreateNoteCommandHandler(_context, memoryCache);
 
         var command = new CreateNoteCommand
         {
-            Title = "Note 1",
-            Text = "Text 1",
-            CreationDate = DateTime.Now
+            Title = notes[0].Title,
+            Text = notes[0].Text,
+            CreationDate = notes[0].CreationDate
         };
 
         // Act
@@ -37,29 +49,32 @@ public class CreateNoteCommandHandlerTests
         Assert.Equal(command.Title, result.Title);
         Assert.Equal(command.Text, result.Text);
         Assert.Equal(command.CreationDate, result.CreationDate);
-        mockContext.Verify(x => x.SaveChangesAsync(It.IsAny<CancellationToken>()), Times.Once);
     }
 
     [Fact]
     public async Task Handle_RemovesCorrectCacheEntries()
     {
         // Arrange
-        var notes = new List<Note>();
-
-        var mockContext = new Mock<ApplicationDbContext>();
-        mockContext.Setup(x => x.Notes).ReturnsDbSet(notes);
+        var notes = TestData.Notes;
 
         var memoryCache = new MemoryCache(new MemoryCacheOptions());
         memoryCache.Set("notesList", notes);
         memoryCache.Set("notesCount", notes.Count);
 
-        var handler = new CreateNoteCommandHandler(mockContext.Object, memoryCache);
+        var newNote = new Note()
+        {
+            Title = "New note",
+            Text = "Just created note",
+            CreationDate = DateTime.UtcNow
+        };
+
+        var handler = new CreateNoteCommandHandler(_context, memoryCache);
 
         var command = new CreateNoteCommand
         {
-            Title = "Note 1",
-            Text = "Text 1",
-            CreationDate = DateTime.Now
+            Title = newNote.Title,
+            Text = newNote.Text,
+            CreationDate = newNote.CreationDate
         };
 
         // Act

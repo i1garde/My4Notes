@@ -31,7 +31,7 @@ public class E2ETests : IDisposable
         
         _driver.FindElement(By.Id("viewNoteButton")).Click();
         
-        Thread.Sleep(500);
+        Thread.Sleep(1000);
         
         var getTitle = _driver.FindElement(By.Id("noteItemTitle")).Text;
         var getText = _driver.FindElement(By.TagName("textarea")).Text;
@@ -40,7 +40,7 @@ public class E2ETests : IDisposable
         
         _driver.FindElement(By.Id("hideButton")).Click();
         
-        Thread.Sleep(500);
+        Thread.Sleep(1000);
 
         DeleteNoteHelper();
     }

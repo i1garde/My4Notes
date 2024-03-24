@@ -10,20 +10,28 @@ namespace My4Notes.Tests;
 
 public class GetNoteByIdQueryHandlerTests
 {
+    private ApplicationDbContext _context;
+    private GetNoteByIdQueryHandler _handler;
+
+    public GetNoteByIdQueryHandlerTests()
+    {
+        var options = new DbContextOptionsBuilder<ApplicationDbContext>()
+            .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
+            .Options;
+
+        _context = new ApplicationDbContext(options);
+        _context.Notes.AddRange(TestData.Notes);
+        _context.SaveChanges();
+
+        _handler = new GetNoteByIdQueryHandler(_context);
+    }
     [Fact]
     public async Task Handle_ReturnsCorrectNote_WhenNoteExists()
     {
         // Arrange
-        var notes = new List<Note>
-        {
-            new Note { Id = 1, Title = "Note 1" },
-            new Note { Id = 2, Title = "Note 2" }
-        };
+        var notes = TestData.Notes;
 
-        var mockContext = new Mock<ApplicationDbContext>();
-        mockContext.Setup(x => x.Notes).ReturnsDbSet(notes);
-
-        var handler = new GetNoteByIdQueryHandler(mockContext.Object);
+        var handler = new GetNoteByIdQueryHandler(_context);
 
         // Act
         var result = await handler.Handle(new GetNoteByIdQuery { Id = 1 }, default);
@@ -37,19 +45,12 @@ public class GetNoteByIdQueryHandlerTests
     public async Task Handle_ReturnsNull_WhenNoteDoesNotExist()
     {
         // Arrange
-        var notes = new List<Note>
-        {
-            new Note { Id = 1, Title = "Note 1" },
-            new Note { Id = 2, Title = "Note 2" }
-        };
+        var notes = TestData.Notes;
 
-        var mockContext = new Mock<ApplicationDbContext>();
-        mockContext.Setup(x => x.Notes).ReturnsDbSet(notes);
-
-        var handler = new GetNoteByIdQueryHandler(mockContext.Object);
+        var handler = new GetNoteByIdQueryHandler(_context);
 
         // Act
-        var result = await handler.Handle(new GetNoteByIdQuery { Id = 3 }, default);
+        var result = await handler.Handle(new GetNoteByIdQuery { Id = 6 }, default);
 
         // Assert
         Assert.Null(result);

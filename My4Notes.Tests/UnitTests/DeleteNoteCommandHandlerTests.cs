@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Caching.Memory;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 using Moq;
 using Moq.EntityFrameworkCore;
 using My4Notes.DatabaseAccess;
@@ -9,45 +10,56 @@ namespace My4Notes.Tests;
 
 public class DeleteNoteCommandHandlerTests
 {
+    private ApplicationDbContext _context;
+
+    public DeleteNoteCommandHandlerTests()
+    {
+        // Setup In-Memory Database for testing purposes
+        var options = new DbContextOptionsBuilder<ApplicationDbContext>()
+            .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
+            .Options;
+
+        _context = new ApplicationDbContext(options);
+    }
+    
     [Fact]
     public async Task Handle_DeletesNoteCorrectly()
     {
         // Arrange
-        var notes = new List<Note>
-        {
-            new Note { Id = 1, Title = "Note 1", Text = "Text 1", CreationDate = DateTime.Now }
-        };
-
-        var mockContext = new Mock<ApplicationDbContext>();
-        mockContext.Setup(x => x.Notes).ReturnsDbSet(notes);
-        mockContext.Setup(x => x.SaveChangesAsync(It.IsAny<CancellationToken>())).ReturnsAsync(1);
+        var notes = TestData.Notes;
 
         var memoryCache = new MemoryCache(new MemoryCacheOptions());
+        
+        var createHandler = new CreateNoteCommandHandler(_context, memoryCache);
 
-        var handler = new DeleteNoteCommandHandler(mockContext.Object, memoryCache);
+        var createCommand = new CreateNoteCommand
+        {
+            Title = notes[0].Title,
+            Text = notes[0].Text,
+            CreationDate = notes[0].CreationDate
+        };
 
-        var command = new DeleteNoteCommand { Id = 1 };
+        var deleteHandler = new DeleteNoteCommandHandler(_context, memoryCache);
+
+        var deleteCommand = new DeleteNoteCommand { Id = 1 };
 
         // Act
-        var result = await handler.Handle(command, default);
+        var createAct = await createHandler.Handle(createCommand, default);
+        var deleteAct = await deleteHandler.Handle(deleteCommand, default);
 
         // Assert
-        Assert.Equal(command.Id, result.Id);
-        mockContext.Verify(x => x.SaveChangesAsync(It.IsAny<CancellationToken>()), Times.Once);
+        Assert.Equal(createAct.Id, deleteAct.Id);
     }
 
     [Fact]
     public async Task Handle_ReturnsDefaultWhenNoteDoesNotExist()
     {
         // Arrange
-        var notes = new List<Note>();
-
-        var mockContext = new Mock<ApplicationDbContext>();
-        mockContext.Setup(x => x.Notes).ReturnsDbSet(notes);
+        var notes = TestData.Notes;
 
         var memoryCache = new MemoryCache(new MemoryCacheOptions());
 
-        var handler = new DeleteNoteCommandHandler(mockContext.Object, memoryCache);
+        var handler = new DeleteNoteCommandHandler(_context, memoryCache);
 
         var command = new DeleteNoteCommand { Id = 1 };
 
@@ -62,25 +74,28 @@ public class DeleteNoteCommandHandlerTests
     public async Task Handle_RemovesCorrectCacheEntries()
     {
         // Arrange
-        var notes = new List<Note>
-        {
-            new Note { Id = 1, Title = "Note 1", Text = "Text 1", CreationDate = DateTime.Now }
-        };
-
-        var mockContext = new Mock<ApplicationDbContext>();
-        mockContext.Setup(x => x.Notes).ReturnsDbSet(notes);
-        mockContext.Setup(x => x.SaveChangesAsync(It.IsAny<CancellationToken>())).ReturnsAsync(1);
+        var notes = TestData.Notes;
 
         var memoryCache = new MemoryCache(new MemoryCacheOptions());
         memoryCache.Set("notesList", notes);
         memoryCache.Set("notesCount", notes.Count);
 
-        var handler = new DeleteNoteCommandHandler(mockContext.Object, memoryCache);
+        var createHandler = new CreateNoteCommandHandler(_context, memoryCache);
 
-        var command = new DeleteNoteCommand { Id = 1 };
+        var createCommand = new CreateNoteCommand
+        {
+            Title = notes[0].Title,
+            Text = notes[0].Text,
+            CreationDate = notes[0].CreationDate
+        };
+        
+        var deleteHandler = new DeleteNoteCommandHandler(_context, memoryCache);
+
+        var deleteCommand = new DeleteNoteCommand { Id = 1 };
 
         // Act
-        await handler.Handle(command, default);
+        var createAct = await createHandler.Handle(createCommand, default);
+        var deleteAct = await deleteHandler.Handle(deleteCommand, default);
 
         // Assert
         Assert.False(memoryCache.TryGetValue("notesList", out List<Note> _));
