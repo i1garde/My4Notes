@@ -1,6 +1,8 @@
 ﻿# Project architecture
 
-![Architecture](../Images/My4Notes-Architecture.png)
+<p align="center">
+  <img src="../Images/My4Notes-Architecture.png" alt="Architecture">
+</p>
 
 The project architecture adheres to the CQRS (Command Query Responsibility 
 Segregation) pattern. CQRS separates the concerns of reading data (queries) 
