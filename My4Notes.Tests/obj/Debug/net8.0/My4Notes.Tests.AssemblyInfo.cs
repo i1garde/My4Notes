@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("My4Notes.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ad7c31275c22fa9995416712c633c4ac235e7d49")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+08fcf6fb1301671d79f8610dce877609bdcb67c3")]
 [assembly: System.Reflection.AssemblyProductAttribute("My4Notes.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("My4Notes.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
