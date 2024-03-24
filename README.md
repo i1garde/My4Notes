@@ -6,5 +6,6 @@ My4Notes is a web application designed for anonymous storage and sharing of note
 - Note Sharing: Notes are made available to everyone, allowing for easy sharing of information.
 - User-Friendly Interface: My Notes offers a simple and intuitive interface for creating, managing, and sharing notes.
 
-### Architecture diagram and used technologies
-![alt text](https://github.com/i1garde/My4Notes/blob/main/My4Notes-Architecture-Technologies.png)
+[Project Architecture](./Docs/ProjectsArchitecture.md)
+
+[Used Technologies](./Docs/UsedTechnologies.md)
