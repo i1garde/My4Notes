@@ -20,7 +20,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents();
 builder.Services.AddAntiforgery();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("My4NotesDatabase")));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("AzureDB")));
 builder.Services.AddSingleton<ApplicationState>();
 builder.Services.AddMemoryCache();
 builder.Services.AddApplication();
