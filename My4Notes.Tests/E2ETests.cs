@@ -1,6 +1,5 @@
 ﻿using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
 
 namespace My4Notes.Tests;
 
