@@ -4,14 +4,7 @@
 @layout Layout.MainLayout
 
 <div id="indexPage">
-    @if (NotesCount <= 8)
-      {
-          <div id="notesList" hx-get="/notes" hx-trigger="load" hx-swap="innerHTML"></div>
-      }
-    else
-      {
-          <div id="notesList" hx-get="/paginatedList/1" hx-trigger="load" hx-swap="innerHTML"></div>
-      } 
+    <div id="notesList" hx-get="/notes" hx-trigger="load" hx-swap="innerHTML"></div>
 </div>
 
 @code {
