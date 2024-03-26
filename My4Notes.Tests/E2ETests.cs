@@ -162,6 +162,118 @@ public class E2ETests : IDisposable
         DeleteNoteHelper();
         DeleteNoteHelper();
     }
+    
+    [Fact]
+    public void PaginationCorrectNumberOfPages()
+    {
+        _driver.Navigate().GoToUrl(currentProjectURL);
+        for (int i = 0; i < 24; i++)
+        {
+            CreateNoteHelper($"Test Title {i}", $"Test Text {i}");
+        }
+        
+        var page1 = _driver.FindElement(By.Id("pagination-li-1"));
+        var page2 = _driver.FindElement(By.Id("pagination-li-2"));
+        var page3 = _driver.FindElement(By.Id("pagination-li-3"));
+        
+        Assert.NotNull(page1);
+        Assert.NotNull(page2);
+        Assert.NotNull(page3);
+        
+        for (int i = 0; i < 24; i++)
+        {
+            DeleteNoteHelper();
+        }
+    }
+    
+    [Fact]
+    public void PaginationAppearesWhenNotesNumberMoreThanEight()
+    {
+        _driver.Navigate().GoToUrl(currentProjectURL);
+        for (int i = 0; i < 9; i++)
+        {
+            CreateNoteHelper($"Test Title {i}", $"Test Text {i}");
+        }
+        
+        var pagination = _driver.FindElement(By.Id("pagination-nav"));
+        
+        Assert.NotNull(pagination);
+        
+        for (int i = 0; i < 9; i++)
+        {
+            DeleteNoteHelper();
+        }
+    }
+    
+    [Fact]
+    public void PaginationNumberPageSwitchesWorksCorrectly()
+    {
+        _driver.Navigate().GoToUrl(currentProjectURL);
+        for (int i = 0; i < 10; i++)
+        {
+            CreateNoteHelper($"Test Title {i}", $"Test Text {i}");
+        }
+        
+        IJavaScriptExecutor js = (IJavaScriptExecutor)_driver;
+        js.ExecuteScript("window.scrollTo(0, document.body.scrollHeight);");
+        Thread.Sleep(500);
+        
+        _driver.FindElement(By.Id("pagination-button-2")).Click();
+        Thread.Sleep(500);
+        
+        var secondPageNote = _driver.FindElement(By.Id("noteItemTitle")).Text;
+        
+        js.ExecuteScript("window.scrollTo(0, document.body.scrollHeight);");
+        Thread.Sleep(500);
+        
+        _driver.FindElement(By.Id("pagination-button-1")).Click();
+        Thread.Sleep(500);
+        
+        var firstPageNote = _driver.FindElement(By.Id("noteItemTitle")).Text;
+        
+        Assert.Equal($"Test Title 1", secondPageNote);
+        Assert.Equal($"Test Title 9", firstPageNote);
+        
+        for (int i = 0; i < 10; i++)
+        {
+            DeleteNoteHelper();
+        }
+    }
+    
+    [Fact]
+    public void PaginationPreviousNextPageSwitchesWorksCorrectly()
+    {
+        _driver.Navigate().GoToUrl(currentProjectURL);
+        for (int i = 0; i < 10; i++)
+        {
+            CreateNoteHelper($"Test Title {i}", $"Test Text {i}");
+        }
+        
+        IJavaScriptExecutor js = (IJavaScriptExecutor)_driver;
+        js.ExecuteScript("window.scrollTo(0, document.body.scrollHeight);");
+        Thread.Sleep(500);
+        
+        _driver.FindElement(By.Id("pagination-button-next")).Click();
+        Thread.Sleep(500);
+        
+        var secondPageNote = _driver.FindElement(By.Id("noteItemTitle")).Text;
+        
+        js.ExecuteScript("window.scrollTo(0, document.body.scrollHeight);");
+        Thread.Sleep(500);
+        
+        _driver.FindElement(By.Id("pagination-button-prev")).Click();
+        Thread.Sleep(500);
+        
+        var firstPageNote = _driver.FindElement(By.Id("noteItemTitle")).Text;
+        
+        Assert.Equal($"Test Title 1", secondPageNote);
+        Assert.Equal($"Test Title 9", firstPageNote);
+        
+        for (int i = 0; i < 10; i++)
+        {
+            DeleteNoteHelper();
+        }
+    }
 
     public void Dispose()
     {
