@@ -1,6 +1,30 @@
 ﻿@using My4Notes.Entities
 
-@foreach (var note in Notes)
+@if (Notes.Count() <= 8 || Search)
+{
+    @foreach (var note in Notes)
+    {
+        <div id="noteContainer-@note.Id" class="container p-3 my-3" style="max-width: 95%; background-color: #d9d9d7; border-style: solid; border-color: #b8b8b8;">
+            <div class="row align-items-center">
+                <div id="noteItemTitle" class="col-2">
+                    @note.Title
+                </div>
+                <div id="noteItemCreationDate" class="col-8 text-center">
+                    @Note.formatCreationDate(@note)
+                </div>
+                <div class="col-1">
+                    <button id="viewNoteButton" class="btn btn-light" hx-get="/notes/@note.Id" hx-target="#noteContainer-@note.Id" hx-swap="outerHTML">View note</button>
+                </div>
+                <div class="col-1">
+                    <button id="editNoteButton" class="btn btn-light" hx-get="/notes/@note.Id/edit" hx-target="#noteContainer-@note.Id" hx-swap="outerHTML">Edit note</button>
+                </div>
+            </div>
+        </div>
+    }
+}
+else
+{
+    @foreach (var note in Notes.Skip(8 * (Page - 1)).Take(8))
     {
         <div id="noteContainer-@note.Id" class="container p-3 my-3" style="max-width: 95%; background-color: #d9d9d7; border-style: solid; border-color: #b8b8b8;">
             <div class="row align-items-center">
@@ -20,7 +44,53 @@
         </div>
     }
 
+    <nav id="pagination-nav" aria-label="Page navigation example" class="d-flex justify-content-center p-3 my-3">
+        <ul id="pagination-ul" class="pagination pagination-black">
+            @if (Page - 1 == 0)
+            {
+                <li id="pagination-li-prev" class="page-item disabled">
+                    <button id="pagination-button-prev" class="page-link" tabindex="-1" aria-disabled="true">Previous</button>
+                </li>
+            }
+            else
+            {
+                <li id="pagination-li-prev" class="page-item">
+                    <button id="pagination-button-prev" class="page-link" hx-get="/paginatedList/@DecPage(Page)" hx-target="#notesList" hx-swap="innerHTML">Previous</button>
+                </li>
+            }
+            @for (var i = 1; i <= GetPagesCount(Notes.Count); i++)
+            {
+                <li id="pagination-li-@i" class="page-item">
+                    <button id="pagination-button-@i" class="page-link" hx-get="/paginatedList/@i" hx-target="#notesList" hx-swap="innerHTML">@i</button>
+                </li>
+            }
+            @if (Page == GetPagesCount(Notes.Count))
+            {
+                <li id="pagination-li-next" class="page-item disabled">
+                    <button id="pagination-button-next" class="page-link" tabindex="-1" aria-disabled="true">Next</button>
+                </li>
+            }
+            else
+            {
+                <li id="pagination-li-next" class="page-item">
+                    <button id="pagination-button-next" class="page-link" hx-get="/paginatedList/@IncPage(Page)" hx-target="#notesList" hx-swap="innerHTML">Next</button>
+                </li>
+            }
+        </ul>
+    </nav>
+}
+
+
+
 @code {
     [Parameter] 
     public List<Note> Notes { get; set; } = new();
+    [Parameter] 
+    public int Page { get; set; }
+    [Parameter] 
+    public bool Search { get; set; }
+
+    int IncPage(int page) => page + 1;
+    int DecPage(int page) => page - 1;
+    int GetPagesCount(int notesCount) => notesCount / 8 + 1;
 }

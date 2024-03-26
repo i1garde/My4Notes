@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("My4Notes.Entities")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+08fcf6fb1301671d79f8610dce877609bdcb67c3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3e9097b826f970747727c9aee6d95270eb104033")]
 [assembly: System.Reflection.AssemblyProductAttribute("My4Notes.Entities")]
 [assembly: System.Reflection.AssemblyTitleAttribute("My4Notes.Entities")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
