@@ -19,7 +19,7 @@ My4Notes project utilizes a robust tech stack to deliver a seamless user experie
 
 **Cache:**
 
-Despite, Redis been a more mature and feature-rich in-memory storage solution, Microsoft InMemoryCache has several adventages:
+Despite, Redis been a more mature and feature-rich in-memory storage solution, Microsoft InMemoryCache has several advantages:
 
  - Higher performance
  - Interoperability with the .NET ecosystem
