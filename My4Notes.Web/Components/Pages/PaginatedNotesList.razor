@@ -19,36 +19,36 @@
         </div>
     </div>
 }
-<nav aria-label="Page navigation example" class="d-flex justify-content-center p-3 my-3">
-    <ul class="pagination pagination-black">
+<nav id="pagination-nav" aria-label="Page navigation example" class="d-flex justify-content-center p-3 my-3">
+    <ul id="pagination-ul" class="pagination pagination-black">
         @if (Page - 1 == 0)
         {
-            <li class="page-item disabled">
-                <button class="page-link" tabindex="-1" aria-disabled="true">Previous</button>
+            <li id="pagination-li-prev" class="page-item disabled">
+                <button id="pagination-button-prev" class="page-link" tabindex="-1" aria-disabled="true">Previous</button>
             </li>
         }
         else
         {
-            <li class="page-item">
-                <button class="page-link" hx-get="/paginatedList/@DecPage(Page)" hx-target="#indexPage" hx-swap="innerHTML">Previous</button>
+            <li id="pagination-li-prev" class="page-item">
+                <button id="pagination-button-prev" class="page-link" hx-get="/paginatedList/@DecPage(Page)" hx-target="#indexPage" hx-swap="innerHTML">Previous</button>
             </li>
         }
         @for (var i = 1; i <= GetPagesCount(Notes.Count); i++)
         {
-            <li class="page-item">
-                <button class="page-link" hx-get="/paginatedList/@i" hx-target="#indexPage" hx-swap="innerHTML">@i</button>
+            <li id="pagination-li-@i" class="page-item">
+                <button id="pagination-button-@i" class="page-link" hx-get="/paginatedList/@i" hx-target="#indexPage" hx-swap="innerHTML">@i</button>
             </li>
         }
         @if (Page == GetPagesCount(Notes.Count))
         {
-            <li class="page-item disabled">
-                <button class="page-link" tabindex="-1" aria-disabled="true">Next</button>
+            <li id="pagination-li-next" class="page-item disabled">
+                <button id="pagination-button-next" class="page-link" tabindex="-1" aria-disabled="true">Next</button>
             </li>
         }
         else
         {
-            <li class="page-item">
-                <button class="page-link" hx-get="/paginatedList/@IncPage(Page)" hx-target="#indexPage" hx-swap="innerHTML">Next</button>
+            <li id="pagination-li-next" class="page-item">
+                <button id="pagination-button-next" class="page-link" hx-get="/paginatedList/@IncPage(Page)" hx-target="#indexPage" hx-swap="innerHTML">Next</button>
             </li>
         }
     </ul>

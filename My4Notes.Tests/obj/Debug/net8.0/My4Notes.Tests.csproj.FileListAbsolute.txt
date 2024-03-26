@@ -3,7 +3,6 @@ C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Tests\bin\Debug\net8.0\testhost.dl
 C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Tests\bin\Debug\net8.0\My4Notes.Web.deps.json
 C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Tests\bin\Debug\net8.0\My4Notes.Web.runtimeconfig.json
 C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Tests\bin\Debug\net8.0\appsettings.Development.json
-C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Tests\bin\Debug\net8.0\appsettings.json
 C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Tests\bin\Debug\net8.0\My4Notes.Web.staticwebassets.runtime.json
 C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Tests\bin\Debug\net8.0\My4Notes.Web.exe
 C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Tests\bin\Debug\net8.0\testhost.exe
@@ -434,3 +433,12 @@ C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Tests\obj\Debug\net8.0\refint\My4N
 C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Tests\obj\Debug\net8.0\My4Notes.Tests.pdb
 C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Tests\obj\Debug\net8.0\My4Notes.Tests.genruntimeconfig.cache
 C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Tests\obj\Debug\net8.0\ref\My4Notes.Tests.dll
+C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Tests\bin\Debug\net8.0\Azure.Core.dll
+C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Tests\bin\Debug\net8.0\Azure.Data.AppConfiguration.dll
+C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Tests\bin\Debug\net8.0\Azure.Messaging.EventGrid.dll
+C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Tests\bin\Debug\net8.0\Azure.Security.KeyVault.Secrets.dll
+C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Tests\bin\Debug\net8.0\DnsClient.dll
+C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Tests\bin\Debug\net8.0\Microsoft.Azure.AppConfiguration.AspNetCore.dll
+C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Tests\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Tests\bin\Debug\net8.0\Microsoft.Extensions.Configuration.AzureAppConfiguration.dll
+C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Tests\bin\Debug\net8.0\System.Memory.Data.dll
