@@ -16,7 +16,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents();
 builder.Services.AddAntiforgery();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("AzureDB")));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("My4NotesDatabase")));
 builder.Services.AddSingleton<ApplicationState>();
 builder.Services.AddMemoryCache();
 builder.Services.AddApplication();
@@ -49,7 +49,7 @@ app.MapGet("/notes", async (IMediator _mediator, ILogger<NotesList> logger) =>
     var query = new GetAllNotesQuery();
     var notes = await _mediator.Send(query);
     logger.LogInformation("Fetch notes list.");
-    return new RazorComponentResult<NotesList>(new { Notes = notes });
+    return new RazorComponentResult<NotesList>(new { Notes = notes, Page = 1, Search = false });
 });
 
 app.MapGet("/notes/{id}", async (int id, IMediator _mediator, ILogger<GetNote> logger) =>
@@ -152,7 +152,14 @@ app.MapPost("/notes/search",
         var query = new SearchNotesQuery() { SearchText = search };
         var searchedList = await _mediator.Send(query);
         logger.LogInformation("Update notes list via search bar.");
-        return new RazorComponentResult<NotesList>(new { Notes = searchedList });
+        if (search == "")
+        {
+            return new RazorComponentResult<NotesList>(new { Notes = searchedList, Page = 1, Search = false });
+        }
+        else
+        {
+            return new RazorComponentResult<NotesList>(new { Notes = searchedList, Page = 1, Search = true });
+        }
     });
 
 app.MapGet("/paginatedList/{page}", async (int page, ApplicationState appState, IMediator _mediator, ILogger<IndexPage> logger) =>
@@ -160,7 +167,7 @@ app.MapGet("/paginatedList/{page}", async (int page, ApplicationState appState, 
     var query = new GetAllNotesQuery();
     var notes = await _mediator.Send(query);
     logger.LogInformation("Fetch paginated notes list.");
-    return new RazorComponentResult<PaginatedNotesList>(new { Notes = notes, Page = page });
+    return new RazorComponentResult<NotesList>(new { Notes = notes, Page = page, Search = false });
 });
 
 app.Run();

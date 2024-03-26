@@ -246,3 +246,4 @@ C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Web\bin\Debug\net8.0\DnsClient.dll
 C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Web\bin\Debug\net8.0\Microsoft.Azure.AppConfiguration.AspNetCore.dll
 C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Web\bin\Debug\net8.0\Microsoft.Extensions.Configuration.AzureAppConfiguration.dll
 C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Web\bin\Debug\net8.0\System.Memory.Data.dll
+C:\Users\Ivan\RiderProjects\My4Notes\My4Notes.Web\bin\Debug\net8.0\appsettings.json
