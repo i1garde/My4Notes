@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ixQBgfCRNbFHyyH5paA5yLQy8Y4TxoYGpinf8Oo2pf8=",
+  "Hash": "9gpc9ySpXgD3gHTZW0C+E4IRhP0kTnBtBGPjV/I09R4=",
   "Source": "My4Notes.Web",
   "BasePath": "_content/My4Notes.Web",
   "Mode": "Default",
@@ -16,6 +16,25 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\Users\\Ivan\\RiderProjects\\My4Notes\\My4Notes.Web\\wwwroot\\css\\bootstrap-pagination.css",
+      "SourceId": "My4Notes.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Ivan\\RiderProjects\\My4Notes\\My4Notes.Web\\wwwroot\\",
+      "BasePath": "_content/My4Notes.Web",
+      "RelativePath": "css/bootstrap-pagination.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\bootstrap-pagination.css"
+    },
     {
       "Identity": "C:\\Users\\Ivan\\RiderProjects\\My4Notes\\My4Notes.Web\\wwwroot\\css\\bootstrap.min.css",
       "SourceId": "My4Notes.Web",

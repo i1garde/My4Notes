@@ -1,0 +1,7 @@
+﻿.pagination-black .page-link {
+    color: black;
+}
+
+.pagination-black .page-link:hover {
+    background-color: #f8f9fa; /* Optional: Add hover background color */
+}

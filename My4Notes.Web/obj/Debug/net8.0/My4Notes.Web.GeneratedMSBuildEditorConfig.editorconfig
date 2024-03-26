@@ -54,6 +54,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xOb3Rlc0xpc3QucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Ivan/RiderProjects/My4Notes/My4Notes.Web/Components/Pages/PaginatedNotesList.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQYWdpbmF0ZWROb3Rlc0xpc3QucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Ivan/RiderProjects/My4Notes/My4Notes.Web/Components/Pages/SearchBar.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTZWFyY2hCYXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
