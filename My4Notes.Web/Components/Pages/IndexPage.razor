@@ -1,0 +1,27 @@
+﻿@page "/"
+@using My4Notes.Entities
+@using My4Notes.Web.Components.Layout
+@using My4Notes.Web.Components.Services
+
+@inject NotesService notesService
+
+<div id="indexPage">
+    <NotesList Notes=@Notes Page=1 />
+</div>
+
+@code {
+    private List<Note> Notes { get; set; } = new();
+    
+    protected override async Task OnInitializedAsync()
+    {
+        var notes = await notesService.GetNotes();
+        Notes = notes;
+        notesService.OnNotesListChange += UpdateNotesList;
+    }
+
+    private async Task UpdateNotesList()
+    {
+        Notes = await notesService.GetNotes();
+        StateHasChanged();
+    }
+}

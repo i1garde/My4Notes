@@ -17,13 +17,21 @@ public class E2ETests : IDisposable
     public void CreateANewNote()
     {
         _driver.Navigate().GoToUrl(currentProjectURL);
+        
+        Thread.Sleep(1000);
 
         _driver.FindElement(By.Id("createNoteButton")).Click();
         
-        Thread.Sleep(1000);
+        Thread.Sleep(2000);
         
         _driver.FindElement(By.Id("titleInput")).SendKeys("Test Title");
+        
+        Thread.Sleep(1000);
+        
         _driver.FindElement(By.Id("textInput")).SendKeys("Test Text");
+        
+        Thread.Sleep(1000);
+        
         _driver.FindElement(By.Id("submitButton")).Click();
         
         Thread.Sleep(1000);
@@ -33,9 +41,14 @@ public class E2ETests : IDisposable
         Thread.Sleep(1000);
         
         var getTitle = _driver.FindElement(By.Id("noteItemTitle")).Text;
+        
+        Thread.Sleep(1000);
+        
         var getText = _driver.FindElement(By.TagName("textarea")).Text;
         
         Assert.Equal("Test Title", getTitle); Assert.Equal("Test Text", getText);
+        
+        Thread.Sleep(1000);
         
         _driver.FindElement(By.Id("hideButton")).Click();
         
@@ -283,15 +296,23 @@ public class E2ETests : IDisposable
 
     private void CreateNoteHelper(string title, string text)
     {
+        Thread.Sleep(1000);
+
         _driver.FindElement(By.Id("createNoteButton")).Click();
+        
+        Thread.Sleep(2000);
+        
+        _driver.FindElement(By.Id("titleInput")).SendKeys(title);
         
         Thread.Sleep(1000);
         
-        _driver.FindElement(By.Id("titleInput")).SendKeys(title);
         _driver.FindElement(By.Id("textInput")).SendKeys(text);
+        
+        Thread.Sleep(1000);
+        
         _driver.FindElement(By.Id("submitButton")).Click();
         
-        Thread.Sleep(500);
+        Thread.Sleep(1000);
     }
     
     private void DeleteNoteHelper()
