@@ -4,10 +4,9 @@
 
 My4Notes project utilizes a robust tech stack to deliver a seamless user experience. 
 
-**Blazor Server and HTMX:**
- - Both provide tooling for creating dynamic, interactive UIs without relying on complex JavaScript frameworks
+**Blazor Server:**
+ - Blazor Server provide tooling for creating dynamic, interactive UIs without relying on complex JavaScript frameworks
  - Blazor Server simplifies development with a unified .NET codebase
- - HTMX enables dynamic updates through simple HTML attributes, leading to faster load times and smoother user interactions
 
 **ASP.NET Core Web API:**
  - Offers robust tools for building RESTful APIs, ensuring efficient data exchange between client and server. 
