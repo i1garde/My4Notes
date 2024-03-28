@@ -101,6 +101,7 @@ else
     
     private async Task UpdateNotesList()
     {
+        Thread.Sleep(50); // Adds smooth effect, as all changes occurs after very little delay
         var notes = await notesService.GetNotes();
         Notes = notes;
         filteredNotes = notes;
