@@ -1,0 +1,32 @@
+﻿@using Microsoft.AspNetCore.Antiforgery
+@using My4Notes.Web.Components.Services
+@inject SearchService searchService
+@inject NotesService notesService
+
+<div id="searchBar">
+    <form>
+        <input name="@Token.FormFieldName" type="hidden" value="@Token.RequestToken"/>
+        <input @bind="searchService.SearchText" @bind:event="oninput"
+               id="searchBarWidget" class="form-control" type="search" name="search"
+               placeholder="Search..." aria-label="Search" style="width: 1000px;"/>
+    </form>
+    
+    <script>
+    document.getElementById('searchBar').addEventListener('keydown', function(e) {
+        if (e.key == 'Enter') {
+          e.preventDefault();
+        }
+    });
+    </script>
+</div>
+       
+@code {
+       [Parameter]
+       public AntiforgeryTokenSet Token { get; set; }
+       string SearchText = "";
+       
+       protected override void OnInitialized()
+       {
+           
+       }
+}

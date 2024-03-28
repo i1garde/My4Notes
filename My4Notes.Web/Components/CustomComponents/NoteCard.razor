@@ -1,0 +1,118 @@
+﻿@using My4Notes.Entities
+@using Microsoft.AspNetCore.Antiforgery
+@using My4Notes.Web.Components.Services
+@inject My4Notes.Web.Components.Services.NotesService notesService
+
+@if (EditNoteState)
+{
+    <div id="noteContainer-@Note.Id" class="container p-3 my-3" style="max-width: 95%; background-color: #d9d9d7; border-style: solid; border-color: #b8b8b8;">
+        <form id="editform" @onsubmit="SubmitEditNote">
+            <input name="@Token.FormFieldName" type="hidden" value="@Token.RequestToken" />
+            <input name="id" type="hidden" value="@Note.Id" />
+            <div class="row align-items-center mb-3">
+                <div class="col-2">
+                    <InputText @bind-Value="Note!.Title" id="editTitleInput" type="text" class="form-control" name="title" placeholder="Edit title" aria-label="Edit title" />
+                </div>
+                <div class="col-1">
+                    <button id="deleteButton" type="button" class="btn btn-danger"
+                            @onclick="SubmitDeleteNote">
+                        Delete note
+                    </button>
+                </div>
+                <div class="col-6 text-center">
+                    @Note.formatCreationDate(@Note)
+                </div>
+                <div class="col-1">
+                
+                </div>
+                <div class="col-1">
+                    <input id="saveButton" type="submit" class="btn btn-light" value="Save">
+                </div>
+                <div class="col-1">
+                    <button class="btn btn-light" @onclick="ToggleEditNote">Cancel edit</button>
+                </div>
+            </div>
+        </form>
+        <div class="row align-items-center">
+            <div class="col">
+                <InputTextArea @bind-Value="Note!.Text" id="editTextInput" class="form-control" name="text" form="editform" rows="3">@Note.Text</InputTextArea>
+            </div>
+        </div>
+    </div>
+}
+else if (!ExpandNoteState)
+{
+    <div id="noteContainer-@Note.Id" class="container p-3 my-3" style="max-width: 95%; background-color: #d9d9d7; border-style: solid; border-color: #b8b8b8;">
+        <div class="row align-items-center">
+            <div id="noteItemTitle" class="col-2">
+                @Note.Title
+            </div>
+            <div id="noteItemCreationDate" class="col-8 text-center">
+                @Note.formatCreationDate(@Note)
+            </div>
+            <div class="col-1">
+                <button id="viewNoteButton" class="btn btn-light" @onclick="ToggleNoteVisualState">View note</button>
+            </div>
+            <div class="col-1">
+                <button id="editNoteButton" class="btn btn-light" @onclick="ToggleEditNote">Edit note</button>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div id="noteContainer-@Note.Id" class="container p-3 my-3" style="max-width: 95%; background-color: #d9d9d7; border-style: solid; border-color: #b8b8b8;">
+        <div class="row align-items-center mb-3">
+            <div id="noteItemTitle" class="col-2">
+                @Note.Title
+            </div>
+            <div class="col-8 text-center">
+                @Note.formatCreationDate(@Note)
+            </div>
+            <div class="col-1">
+                <button id="hideButton"  class="btn btn-light" @onclick="ToggleNoteVisualState">Hide note</button>
+            </div>
+            <div class="col-1">
+                <button id="editNoteButton" class="btn btn-light" @onclick="ToggleEditNote">Edit note</button>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col">
+                <textarea id="noteTextTextarea" readonly class="form-control" rows="3">@Note.Text</textarea>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter] 
+    public AntiforgeryTokenSet Token { get; set; }
+    [Parameter]
+    public Note Note { get; set; }
+    [Parameter]
+    public bool ExpandNoteState { get; set; }
+    [Parameter]
+    public bool EditNoteState { get; set; }
+
+    private async Task SubmitEditNote()
+    {
+        await notesService.EditNote(Note.Id, Note.Title, Note.Text);
+    }
+    
+    private async Task SubmitDeleteNote()
+    {
+        await notesService.DeleteNote(Note.Id);
+    }
+    
+    private void ToggleNoteVisualState()
+    {
+        ExpandNoteState = !ExpandNoteState;
+        StateHasChanged();
+    }
+    
+    private void ToggleEditNote()
+    {
+        EditNoteState = !EditNoteState;
+        StateHasChanged();
+    }
+}

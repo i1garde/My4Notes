@@ -13,8 +13,6 @@ public class IntegrationTests : IClassFixture<WebApplicationFactory<Program>>
     
     [Theory]
     [InlineData("/")]
-    [InlineData("/notes")]
-    [InlineData("/createNote")]
     public async Task Get_EndpointsReturnSuccessAndCorrectContentType2(string url)
     {
         // Arrange

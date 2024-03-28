@@ -17,13 +17,25 @@ public class E2ETests : IDisposable
     public void CreateANewNote()
     {
         _driver.Navigate().GoToUrl(currentProjectURL);
+        
+        Thread.Sleep(1000);
 
         _driver.FindElement(By.Id("createNoteButton")).Click();
         
+        Thread.Sleep(2000);
+        
+        _driver.FindElement(By.Id("titleInput")).Clear();
+        Thread.Sleep(200);
+        _driver.FindElement(By.Id("titleInput")).SendKeys("Test Title");
+        
         Thread.Sleep(1000);
         
-        _driver.FindElement(By.Id("titleInput")).SendKeys("Test Title");
+        _driver.FindElement(By.Id("textInput")).Clear();
+        Thread.Sleep(200);
         _driver.FindElement(By.Id("textInput")).SendKeys("Test Text");
+        
+        Thread.Sleep(1000);
+        
         _driver.FindElement(By.Id("submitButton")).Click();
         
         Thread.Sleep(1000);
@@ -33,9 +45,14 @@ public class E2ETests : IDisposable
         Thread.Sleep(1000);
         
         var getTitle = _driver.FindElement(By.Id("noteItemTitle")).Text;
+        
+        Thread.Sleep(1000);
+        
         var getText = _driver.FindElement(By.TagName("textarea")).Text;
         
         Assert.Equal("Test Title", getTitle); Assert.Equal("Test Text", getText);
+        
+        Thread.Sleep(1000);
         
         _driver.FindElement(By.Id("hideButton")).Click();
         
@@ -213,7 +230,7 @@ public class E2ETests : IDisposable
         {
             CreateNoteHelper($"Test Title {i}", $"Test Text {i}");
         }
-        
+        Thread.Sleep(500);
         IJavaScriptExecutor js = (IJavaScriptExecutor)_driver;
         js.ExecuteScript("window.scrollTo(0, document.body.scrollHeight);");
         Thread.Sleep(500);
@@ -221,6 +238,8 @@ public class E2ETests : IDisposable
         _driver.FindElement(By.Id("pagination-button-2")).Click();
         Thread.Sleep(500);
         
+        js.ExecuteScript("window.scrollTo(0, 0);");
+        Thread.Sleep(500);
         var secondPageNote = _driver.FindElement(By.Id("noteItemTitle")).Text;
         
         js.ExecuteScript("window.scrollTo(0, document.body.scrollHeight);");
@@ -229,6 +248,8 @@ public class E2ETests : IDisposable
         _driver.FindElement(By.Id("pagination-button-1")).Click();
         Thread.Sleep(500);
         
+        js.ExecuteScript("window.scrollTo(0, 0);");
+        Thread.Sleep(500);
         var firstPageNote = _driver.FindElement(By.Id("noteItemTitle")).Text;
         
         Assert.Equal($"Test Title 1", secondPageNote);
@@ -256,12 +277,18 @@ public class E2ETests : IDisposable
         _driver.FindElement(By.Id("pagination-button-next")).Click();
         Thread.Sleep(500);
         
+        js.ExecuteScript("window.scrollTo(0, 0);");
+        Thread.Sleep(500);
+        
         var secondPageNote = _driver.FindElement(By.Id("noteItemTitle")).Text;
         
         js.ExecuteScript("window.scrollTo(0, document.body.scrollHeight);");
         Thread.Sleep(500);
         
         _driver.FindElement(By.Id("pagination-button-prev")).Click();
+        Thread.Sleep(500);
+        
+        js.ExecuteScript("window.scrollTo(0, 0);");
         Thread.Sleep(500);
         
         var firstPageNote = _driver.FindElement(By.Id("noteItemTitle")).Text;
@@ -283,15 +310,27 @@ public class E2ETests : IDisposable
 
     private void CreateNoteHelper(string title, string text)
     {
+        Thread.Sleep(1000);
+
         _driver.FindElement(By.Id("createNoteButton")).Click();
+        
+        Thread.Sleep(2000);
+        
+        _driver.FindElement(By.Id("titleInput")).Clear();
+        Thread.Sleep(200);
+        _driver.FindElement(By.Id("titleInput")).SendKeys(title);
         
         Thread.Sleep(1000);
         
-        _driver.FindElement(By.Id("titleInput")).SendKeys(title);
+        _driver.FindElement(By.Id("textInput")).Clear();
+        Thread.Sleep(200);
         _driver.FindElement(By.Id("textInput")).SendKeys(text);
+        
+        Thread.Sleep(1000);
+        
         _driver.FindElement(By.Id("submitButton")).Click();
         
-        Thread.Sleep(500);
+        Thread.Sleep(1000);
     }
     
     private void DeleteNoteHelper()
