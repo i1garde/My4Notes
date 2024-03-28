@@ -19,8 +19,7 @@ builder.Services
     .AddInteractiveServerComponents();
 builder.Services.AddAntiforgery();
 builder.Services.AddHttpContextAccessor();
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("My4NotesDatabase")));
+builder.Services.AddDbContext<ApplicationDbContext>(ServiceLifetime.Transient);
 builder.Services.AddScoped<NotesService>();
 builder.Services.AddScoped<SearchService>();
 builder.Services.AddMemoryCache();
