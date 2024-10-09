@@ -10,4 +10,4 @@ My4Notes is a web application designed for anonymous storage and sharing of note
 
 [Used Technologies](./Docs/UsedTechnologies.md)
 
-Deployed on Azure App Service ([my4notes-webapp.azurewebsites.net](https://my4notes-webapp.azurewebsites.net/))
+Deployed on Azure App Service (CURRENTLY DOWN!!! [my4notes-webapp.azurewebsites.net](https://my4notes-webapp.azurewebsites.net/))
